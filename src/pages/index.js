@@ -37,50 +37,34 @@ export default function Home() {
           dangerouslySetInnerHTML={{
             __html: `
             {
-    "@context": "http://schema.org",
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-        {
-            "@type": "ListItem",
-            "position": 1,
-            "item": {
-                "@id": "https://www.darly.solutions/",
-                "name": "Тигролови"
-            }
-        },
-        {
-            "@type": "ListItem",
-            "position": 2,
-            "item": {
-                "@id": "https://www.tygrolovy.com.ua/#about",
-                "name": "Про нас"
-            }
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-                "@id": "https://www.tygrolovy.com.ua/#report",
-                "name": "Звітність"
-            }
-        },
-        {
-            "@type": "ListItem",
-            "position": 3,
-            "item": {
-                "@id": "https://www.tygrolovy.com.ua/#donate",
-                "name": "Підтримати"
-            }
-        },
-        {
-            "@type": "ListItem",
-            "position": 4,
-            "item": {
-                "@id": "https://www.tygrolovy.com.ua/#contacts",
-                "name": "Контакти"
-            }
-        },
-    ]
+  "@context": "https://schema.org/", 
+  "@type": "BreadcrumbList", 
+  "itemListElement": [{
+    "@type": "ListItem", 
+    "position": 1, 
+    "name": "Тигролови",
+    "item": "https://www.tygrolovy.com.ua"  
+  },{
+    "@type": "ListItem", 
+    "position": 2, 
+    "name": "Про нас",
+    "item": "https://www.tygrolovy.com.ua/#about"  
+  },{
+    "@type": "ListItem", 
+    "position": 3, 
+    "name": "Звітність",
+    "item": "https://www.tygrolovy.com.ua/#report"  
+  },{
+    "@type": "ListItem", 
+    "position": 4, 
+    "name": "Підтримати",
+    "item": "https://www.tygrolovy.com.ua/#donate"  
+  },{
+    "@type": "ListItem", 
+    "position": 5, 
+    "name": "Контакти",
+    "item": "https://www.tygrolovy.com.ua/#contacts"  
+  }]
 }
     `,
           }}
