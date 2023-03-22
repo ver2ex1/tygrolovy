@@ -32,6 +32,59 @@ export default function Home() {
           href='https://fonts.cdnfonts.com/css/amazing-grotesk'
           rel='stylesheet'
         />
+        <script
+          type='application/ld+json'
+          dangerouslySetInnerHTML={{
+            __html: `
+            {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+                "@id": "https://www.darly.solutions/",
+                "name": "Тигролови"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+                "@id": "https://www.tygrolovy.com.ua/#about",
+                "name": "Про нас"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://www.tygrolovy.com.ua/#report",
+                "name": "Звітність"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+                "@id": "https://www.tygrolovy.com.ua/#donate",
+                "name": "Підтримати"
+            }
+        },
+        {
+            "@type": "ListItem",
+            "position": 4,
+            "item": {
+                "@id": "https://www.tygrolovy.com.ua/#contacts",
+                "name": "Контакти"
+            }
+        },
+    ]
+}
+    `,
+          }}
+        ></script>
       </Head>
       <main>
         <Landing />
