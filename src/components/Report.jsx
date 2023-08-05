@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
-import { reportStyles } from '../components/styles';
+import { reportStyles } from './common/styles';
 import { Typography, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import useWindowSize from '@/utils/useWindowSize';
 import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
 import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
 import Papa from 'papaparse';
-import Loading from '@/components/Loading';
+import Loading from '@/components/common/Loading';
 
 const Report = () => {
   const classes = reportStyles();

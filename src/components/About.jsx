@@ -1,5 +1,5 @@
 import { Box, Typography } from '@mui/material';
-import { aboutStyles } from '../components/styles';
+import { aboutStyles } from './common/styles';
 import { useTranslation } from 'next-i18next';
 
 const About = () => {

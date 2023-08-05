@@ -1,23 +1,23 @@
 import { useState, useEffect } from 'react';
 import { Suspense } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import Header from './common/Header';
+import Footer from './common/Footer';
 import NorthIcon from '@mui/icons-material/North';
 import 'animate.css/animate.min.css';
-import Layout from './Layout';
+import Layout from './common/Layout';
 import dynamic from 'next/dynamic';
-import Loading from '@/components/Loading';
+import Loading from '@/components/common/Loading';
 
-const AboutPage = dynamic(() => import('@/pages/About'), {
+const AboutPage = dynamic(() => import('@/components/About'), {
   suspense: true,
 });
-const ReportPage = dynamic(() => import('@/pages/Report'), {
+const ReportPage = dynamic(() => import('@/components/Report'), {
   suspense: true,
 });
-const DonatePage = dynamic(() => import('@/pages/Donate'), {
+const DonatePage = dynamic(() => import('@/components/Donate'), {
   suspense: true,
 });
-const ContactsPage = dynamic(() => import('@/pages/Contacts'), {
+const ContactsPage = dynamic(() => import('@/components/Contacts'), {
   suspense: true,
 });
 

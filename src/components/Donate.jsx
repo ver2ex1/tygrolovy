@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Box, Typography, Button, TextField, Tooltip } from '@mui/material';
-import { donateStyles } from '@/components/styles';
+import { donateStyles } from '@/components/common/styles';
 import { useTranslation } from 'next-i18next';
 import PaypalLogo from '@/assets/images/PaypalLogo';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';

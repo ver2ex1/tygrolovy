@@ -1,4 +1,4 @@
-import { layoutStyles } from '../components/styles';
+import { layoutStyles } from './styles';
 import { Box } from '@mui/material';
 
 const Layout = ({ children, href }) => {

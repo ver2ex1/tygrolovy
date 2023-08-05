@@ -1,12 +1,12 @@
 import { headerStyles } from './styles';
 import { Box, Typography, Switch } from '@mui/material';
-import Logo from '../assets/images/Logo';
+import Logo from '../../assets/images/Logo';
 import { Typewriter } from 'react-simple-typewriter';
-import UkraineFlag from '../assets/images/UkraineFlag';
-import UKFlag from '../assets/images/UKFlag';
+import UkraineFlag from '../../assets/images/UkraineFlag';
+import UKFlag from '../../assets/images/UKFlag';
 import { useTranslation } from 'next-i18next';
 import { useState } from 'react';
-import useWindowSize from '../utils/useWindowSize';
+import useWindowSize from '../../utils/useWindowSize';
 import { slide as Menu } from 'react-burger-menu';
 import { Link as AnchorLink } from 'react-scroll/modules';
 import Link from 'next/link';

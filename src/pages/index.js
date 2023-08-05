@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import Landing from './Landing';
+import Landing from '../components/Landing';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Home() {
