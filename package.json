@@ -33,6 +33,7 @@
     "react-scroll": "^1.8.9",
     "react-simple-typewriter": "^5.0.1",
     "react-toastify": "^9.1.1",
-    "sass": "^1.58.3"
+    "sass": "^1.58.3",
+    "yup": "^1.2.0"
   }
 }
