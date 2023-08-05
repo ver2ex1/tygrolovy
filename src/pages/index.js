@@ -7,7 +7,10 @@ export default function Home() {
     <>
       <Head>
         <title>Тигролови</title>
-        <meta name='description' content='Благодійний фонд точкової допомоги армії Україні' />
+        <meta
+          name='description'
+          content='Благодійний фонд точкової допомоги армії Україні'
+        />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' type='image/png' href='/favicon.ico' />
         <link
