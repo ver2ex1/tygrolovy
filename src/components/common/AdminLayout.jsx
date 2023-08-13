@@ -33,6 +33,7 @@ const AdminLayout = ({ children }) => {
         <Box sx={classes.header}>
           <Button variant='contained'>Вийти</Button>
         </Box>
+        {children}
       </Box>
     </Box>
   );
