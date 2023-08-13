@@ -10,9 +10,8 @@ const useAdminReportStyles = () => {
         alignItems: 'center',
       },
     },
+    tableWrapper: { paddingTop: '40px' },
   };
 };
-
-
 
 export default useAdminReportStyles;

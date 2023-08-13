@@ -617,3 +617,21 @@ export const useAdminLayoutStyles = () => ({
     },
   },
 });
+
+export const useCustomTableStyles = () => {
+  return {
+    icon: {
+      '&.MuiIconButton-root': {
+        width: '24px',
+        height: '24px',
+        background: theme.palette.primary.main,
+        '&:hover': {
+          background: theme.palette.primary.dark,
+        },
+        '& svg': {
+          width: '16px',
+        },
+      },
+    },
+  };
+};
