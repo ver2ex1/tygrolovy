@@ -575,3 +575,63 @@ export const footerStyles = () => {
     },
   };
 };
+
+export const useAdminLayoutStyles = () => ({
+  root: {
+    display: 'flex',
+  },
+  sidebar: {
+    width: '240px',
+    height: '100vh',
+    backgroundColor: theme.palette.primary.main,
+    padding: '50px 25px',
+  },
+  header: {
+    width: '100%',
+    backgroundColor: theme.palette.primary.dark,
+    height: '100px',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'end',
+    padding: '20px',
+    '& button': {
+      color: '#fff',
+    },
+  },
+  navigation: {
+    display: 'flex',
+    flexDirection: 'column',
+    gap: '10px',
+    justifyContent: 'center',
+    '& a': {
+      display: 'flex',
+      alignItems: 'center',
+      fontWeight: 600,
+      textDecoration: 'none',
+      color: '#fff',
+      fontSize: '18px',
+      gap: '8px',
+      '&:hover': {
+        color: theme.palette.primary.dark,
+      },
+    },
+  },
+});
+
+export const useCustomTableStyles = () => {
+  return {
+    icon: {
+      '&.MuiIconButton-root': {
+        width: '24px',
+        height: '24px',
+        background: theme.palette.primary.main,
+        '&:hover': {
+          background: theme.palette.primary.dark,
+        },
+        '& svg': {
+          width: '16px',
+        },
+      },
+    },
+  };
+};
