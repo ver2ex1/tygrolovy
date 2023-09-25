@@ -11,6 +11,7 @@ import { slide as Menu } from 'react-burger-menu';
 import { Link as AnchorLink } from 'react-scroll/modules';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 const links = [
   { href: 'about', title: 'about.title' },
@@ -65,12 +66,12 @@ const Header = () => {
   const { width } = useWindowSize();
   return (
     <Box sx={classes.wrapper}>
-      <AnchorLink to='/'>
+      <AnchorLink to="/">
         <Logo sx={classes.logo} />
       </AnchorLink>
       {width >= 1120 && (
-        <Typography variant='h5' sx={classes.title}>
-          <Typewriter words={['be a voice. not an echo!']} typeSpeed='120' />
+        <Typography variant="h5" sx={classes.title}>
+          <Typewriter words={['be a voice. not an echo!']} typeSpeed="120" />
         </Typography>
       )}
       {width >= 660 && (
@@ -85,15 +86,15 @@ const Header = () => {
               )}
             </Box>
           ))}
-          <AnchorLink to='donate' style={classes.donate}>
+          <AnchorLink to="donate" style={classes.donate}>
             {t('donate.title')}
           </AnchorLink>
           <Switch
-            color='success'
+            color="success"
             icon={<UkraineFlag />}
             checkedIcon={<UKFlag />}
             disableRipple
-            onChange={(event) => handleSwitch({ event })}
+            onChange={event => handleSwitch({ event })}
             checked={checked}
           />
         </Box>
@@ -102,11 +103,11 @@ const Header = () => {
       {width < 660 && (
         <>
           <Switch
-            color='success'
+            color="success"
             icon={<UkraineFlag />}
             checkedIcon={<UKFlag />}
             disableRipple
-            onChange={(event) => handleSwitch({ event })}
+            onChange={event => handleSwitch({ event })}
             checked={checked}
             sx={classes.switch}
           />
@@ -169,7 +170,7 @@ const Header = () => {
                 </Box>
               ))}
               <Link
-                href='#donate'
+                href="#donate"
                 style={classes.mobileDonate}
                 onClick={closeSideBar}
               >

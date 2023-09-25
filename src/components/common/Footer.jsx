@@ -3,6 +3,7 @@ import Logo from '@/assets/images/Logo';
 import { footerStyles } from './styles';
 import { Link as AnchorLink } from 'react-scroll/modules';
 import { useTranslation } from 'next-i18next';
+import React from 'react';
 
 const Footer = () => {
   const classes = footerStyles();
@@ -13,18 +14,18 @@ const Footer = () => {
         <Logo sx={classes.logo} />
         <Box sx={classes.links}>
           <Link
-            href='https://www.docdroid.net/W8wf2HA/publicna-oferta-pdf'
-            variant='body2'
+            href="https://www.docdroid.net/W8wf2HA/publicna-oferta-pdf"
+            variant="body2"
             sx={classes.pdfLink}
-            target='_blank'
+            target="_blank"
           >
             {t('footer.publicOffer')}
           </Link>
           <Link
-            href='https://docdro.id/SwCSU86'
-            variant='body2'
+            href="https://docdro.id/SwCSU86"
+            variant="body2"
             sx={classes.pdfLink}
-            target='_blank'
+            target="_blank"
           >
             {t('footer.privacyPolicy')}
           </Link>
@@ -32,12 +33,12 @@ const Footer = () => {
       </Box>
       <Box sx={classes.rightSide}>
         <AnchorLink
-          to='donate'
+          to="donate"
           style={{ textDecoration: 'none', cursor: 'pointer' }}
         >
           <Typography sx={classes.donateLink}>{t('donate.title')}</Typography>
         </AnchorLink>
-        <Link href='mailto:tygrolovy.ua@gmail.com' sx={classes.mail}>
+        <Link href="mailto:tygrolovy.ua@gmail.com" sx={classes.mail}>
           tygrolovy.ua@gmail.com
         </Link>
       </Box>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { reportStyles } from './common/styles';
 import { Typography, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
@@ -23,7 +23,7 @@ const Report = () => {
       {
         download: true,
         header: true,
-        complete: (results) => {
+        complete: results => {
           setReportData(results.data);
         },
       }
@@ -52,19 +52,19 @@ const Report = () => {
       ) : (
         <>
           <Box sx={classes.titleWrapper}>
-            <Typography variant='h3' sx={classes.title}>
+            <Typography variant="h3" sx={classes.title}>
               {t('reporting.title')}
             </Typography>
           </Box>
           <Box sx={classes.subTitleWrapper}>
-            <Typography variant='h5' sx={classes.subTitle}>
+            <Typography variant="h5" sx={classes.subTitle}>
               {t('reporting.subTitle')}
             </Typography>
           </Box>
           {width > 1024 && (
             <Box sx={classes.itemsWrapper}>
-              {items.map((item) => (
-                <Typography variant='h6' sx={classes.item} key={item.name}>
+              {items.map(item => (
+                <Typography variant="h6" sx={classes.item} key={item.name}>
                   {t(`reporting.${item.name.replace(' ', '')}`)}
                 </Typography>
               ))}
@@ -78,8 +78,8 @@ const Report = () => {
                 )}
               </Box>
               <Box sx={classes.itemsWrapper}>
-                {currentItems.map((item) => (
-                  <Typography variant='h6' sx={classes.item} key={item.name}>
+                {currentItems.map(item => (
+                  <Typography variant="h6" sx={classes.item} key={item.name}>
                     {t(`reporting.${item.name.replace(' ', '')}`)}
                   </Typography>
                 ))}

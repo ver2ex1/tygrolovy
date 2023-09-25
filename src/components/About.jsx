@@ -1,29 +1,30 @@
 import { Box, Typography } from '@mui/material';
 import { aboutStyles } from './common/styles';
 import { useTranslation } from 'next-i18next';
+import React from 'react';
 
 const About = () => {
   const classes = aboutStyles();
   const { t } = useTranslation();
   return (
     <Box sx={classes.wrapper}>
-      <Typography variant='h2' sx={classes.title}>
+      <Typography variant="h2" sx={classes.title}>
         {t('about.title')}
       </Typography>
       <Box sx={classes.textWrapper}>
-        <Typography variant='body1' sx={classes.textBold}>
+        <Typography variant="body1" sx={classes.textBold}>
           {t('about.article1')}
         </Typography>
-        <Typography variant='body1' sx={classes.text}>
+        <Typography variant="body1" sx={classes.text}>
           {t('about.article2')}
         </Typography>
-        <Typography variant='body1' sx={classes.text}>
+        <Typography variant="body1" sx={classes.text}>
           {t('about.article3')}
         </Typography>
-        <Typography variant='body1' sx={classes.text}>
+        <Typography variant="body1" sx={classes.text}>
           {t('about.article4')}
         </Typography>
-        <Typography variant='body1' sx={classes.text}>
+        <Typography variant="body1" sx={classes.text}>
           {t('about.article5')}
         </Typography>
       </Box>

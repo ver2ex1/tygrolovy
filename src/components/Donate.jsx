@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Box, Typography, Button, TextField, Tooltip } from '@mui/material';
 import { donateStyles } from '@/components/common/styles';
 import { useTranslation } from 'next-i18next';
@@ -21,77 +21,77 @@ const Donate = () => {
     <Box sx={classes.wrapper}>
       <Box sx={classes.content}>
         <Box sx={classes.donateColumn}>
-          <Typography variant='h4'>{t('donate.title')}</Typography>
+          <Typography variant="h4">{t('donate.title')}</Typography>
           <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
+            method="POST"
+            action="https://www.liqpay.ua/api/3/checkout"
+            acceptCharset="utf-8"
           >
             <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVQUgiLCJ2ZXJzaW9uIjozfQ=='
+              type="hidden"
+              name="data"
+              value="eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVQUgiLCJ2ZXJzaW9uIjozfQ=="
             />
             <input
-              type='hidden'
-              name='signature'
-              value='+upisot7bQFSZufD8cSQQOu1tX8='
+              type="hidden"
+              name="signature"
+              value="+upisot7bQFSZufD8cSQQOu1tX8="
             />
-            <Button variant='contained' type='submit'>
+            <Button variant="contained" type="submit">
               {t('donate.donateUah')} ₴
             </Button>
           </form>
           <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
+            method="POST"
+            action="https://www.liqpay.ua/api/3/checkout"
+            acceptCharset="utf-8"
           >
             <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVU0QiLCJ2ZXJzaW9uIjozfQ=='
+              type="hidden"
+              name="data"
+              value="eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVU0QiLCJ2ZXJzaW9uIjozfQ=="
             />
             <input
-              type='hidden'
-              name='signature'
-              value='Yqct8WWfGgyi9DI4ab1piF9Zyqk='
+              type="hidden"
+              name="signature"
+              value="Yqct8WWfGgyi9DI4ab1piF9Zyqk="
             />
-            <Button variant='contained' type='submit'>
+            <Button variant="contained" type="submit">
               {t('donate.donateUsd')} $
             </Button>
           </form>
           <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
+            method="POST"
+            action="https://www.liqpay.ua/api/3/checkout"
+            acceptCharset="utf-8"
           >
             <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJFVVIiLCJ2ZXJzaW9uIjozfQ=='
+              type="hidden"
+              name="data"
+              value="eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJFVVIiLCJ2ZXJzaW9uIjozfQ=="
             />
             <input
-              type='hidden'
-              name='signature'
-              value='luSZ59v5eZgAP+yzmKPJYdeZxp0='
+              type="hidden"
+              name="signature"
+              value="luSZ59v5eZgAP+yzmKPJYdeZxp0="
             />
-            <Button variant='contained' type='submit'>
+            <Button variant="contained" type="submit">
               {t('donate.donateEuro')} €
             </Button>
           </form>
         </Box>
         <Box sx={classes.requisitesColumn}>
-          <Typography variant='h4'>{t('donate.requisites')}</Typography>
+          <Typography variant="h4">{t('donate.requisites')}</Typography>
           <Box sx={classes.requisitesContent}>
             <Box sx={classes.requisitesCopy}>
               <Box sx={classes.requisitesSymbol}>₴</Box>
               <TextField
                 disabled
-                value='UA303052990000026008006231254'
+                value="UA303052990000026008006231254"
                 sx={classes.requisitesInput}
               />
               <Tooltip
-                title='Copied'
+                title="Copied"
                 placement={width > 375 ? 'top' : 'top-start'}
                 arrow
                 disableFocusListener
@@ -116,11 +116,11 @@ const Donate = () => {
               <Box sx={classes.requisitesSymbol}>€</Box>
               <TextField
                 disabled
-                value='UA323052990000026006046247084'
+                value="UA323052990000026006046247084"
                 sx={classes.requisitesInput}
               />
               <Tooltip
-                title='Copied'
+                title="Copied"
                 placement={width > 375 ? 'top' : 'top-start'}
                 arrow
                 disableFocusListener
@@ -147,11 +147,11 @@ const Donate = () => {
               </Box>
               <TextField
                 disabled
-                value='tygrolovy.ua@gmail.com'
+                value="tygrolovy.ua@gmail.com"
                 sx={classes.requisitesInput}
               />
               <Tooltip
-                title='Copied'
+                title="Copied"
                 placement={width > 375 ? 'top' : 'top-start'}
                 arrow
                 disableFocusListener
