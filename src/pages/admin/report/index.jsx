@@ -6,6 +6,7 @@ import Link from 'next/link';
 import CustomTable from '@/components/common/Table';
 import EditIcon from '@mui/icons-material/Edit';
 import { useRouter } from 'next/router';
+import { CSVLink } from 'react-csv';
 
 const AdminReport = () => {
   const classes = useAdminReportStyles();
@@ -66,14 +67,30 @@ const AdminReport = () => {
     },
   ];
 
+  const csvData = data.map(item => ({
+    id: item.id,
+    'Назва товару': item.name,
+    'Кількість': item.count,
+    'Дата': item.date,
+    'Чек': item.check,
+    'Рахунок': item.invoice,
+    'Доставка до нас': item.delivery_to,
+    'Доставка від нас': item.delivery_from,
+  }));
+
   return (
     <AdminLayout>
       <Box sx={classes.root}>
+      <Box sx={classes.header}>
         <Link href='report/add'>
           <Button variant='contained'>
             <AddCircleIcon /> Додати позицію
           </Button>
         </Link>
+        <CSVLink data={csvData} filename={"Звіт.csv"} className="btn btn-primary">
+          Створити таблицю
+        </CSVLink>
+        </Box>
         <Box sx={classes.tableWrapper}>
           <CustomTable columns={columns} data={data} actions={actions} />
         </Box>

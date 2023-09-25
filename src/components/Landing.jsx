@@ -6,7 +6,8 @@ import NorthIcon from '@mui/icons-material/North';
 import 'animate.css/animate.min.css';
 import Layout from './common/Layout';
 import dynamic from 'next/dynamic';
-import Loading from '@/components/common/Loading';
+import Loading from './common/Loading';
+
 
 const AboutPage = dynamic(() => import('@/components/About'), {
   suspense: true,

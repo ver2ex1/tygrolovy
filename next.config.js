@@ -6,11 +6,18 @@ const nextConfig = {
     defaultLocale: 'ua',
   },
 };
-const { i18n } = require('./next-i18next.config');
+// It's assumed that this is a Next.js config file, so the import is from 'next'
+/** @type {import('next').NextConfig} */
+const nextI18nConfig = require('./next-i18next.config'); // import i18n configurations
 
 module.exports = {
-  nextConfig,
-  i18n,
+  ...nextI18nConfig,
+  ...nextConfig,
   reactStrictMode: true,
-  concurrentFeatures: true,
+  i18n: {
+    locales: ['ua', 'eng'],
+    defaultLocale: 'ua',
+  },
 };
+
+

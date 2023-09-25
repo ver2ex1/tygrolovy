@@ -11,6 +11,17 @@ const useAdminReportStyles = () => {
       },
     },
     tableWrapper: { paddingTop: '40px' },
+    header: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+  };
+};
+
+export const useAddReportStyles = () => {
+  return {
+    root: {},
   };
 };
 
