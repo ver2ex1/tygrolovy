@@ -29,9 +29,9 @@ const AdminLayout = ({ children }) => {
           ))}
         </Box>
       </Box>
-      <Box height='100vh' width='100%'>
+      <Box minHeight="100vh" width="100%">
         <Box sx={classes.header}>
-          <Button variant='contained'>Вийти</Button>
+          <Button variant="contained">Вийти</Button>
         </Box>
         {children}
       </Box>

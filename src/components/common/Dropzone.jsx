@@ -26,14 +26,16 @@ const DropzoneComponent = ({ topLabel, onDrop: onDropProp }) => {
           {topLabel}
         </Typography>
       )}
-      <div {...getRootProps()} style={styles.dropzone}>
-        <input {...getInputProps()} />
-        {isDragActive ? (
-          <p>Відпустіть файли тут...</p>
-        ) : (
-          <p>Перетягніть файл сюди, або клікніть для вибору файлу</p>
-        )}
-      </div>
+      {!files.length && (
+        <div {...getRootProps()} style={styles.dropzone}>
+          <input {...getInputProps()} />
+          {isDragActive ? (
+            <p>Відпустіть файли тут...</p>
+          ) : (
+            <p>Перетягніть файл сюди, або клікніть для вибору файлу</p>
+          )}
+        </div>
+      )}
       <ul style={styles.fileList}>
         {files.map((file, index) => (
           <li key={index} style={styles.fileItem}>

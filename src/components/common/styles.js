@@ -286,7 +286,6 @@ export const donateStyles = () => {
       paddingTop: '5%',
       gap: 5,
       alignItems: 'center',
-      width: '50%',
       '& button': {
         color: theme.palette.primary.light,
         fontWeight: 600,
@@ -370,7 +369,7 @@ export const donateStyles = () => {
   };
 };
 
-export const contactsStyle = (width) => {
+export const contactsStyle = width => {
   return {
     wrapper: {
       display: 'flex',
@@ -579,10 +578,10 @@ export const footerStyles = () => {
 export const useAdminLayoutStyles = () => ({
   root: {
     display: 'flex',
+    minHeight: '100vh',
   },
   sidebar: {
     width: '240px',
-    height: '100vh',
     backgroundColor: theme.palette.primary.main,
     padding: '50px 25px',
   },

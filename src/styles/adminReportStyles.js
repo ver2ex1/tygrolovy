@@ -41,11 +41,6 @@ export const useAddReportStyles = () => {
         },
       },
     },
-    formWrapper: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: '16px',
-    },
   };
 };
 

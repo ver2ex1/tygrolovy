@@ -5,11 +5,11 @@ import AddCircleIcon from '@mui/icons-material/AddCircle';
 import Link from 'next/link';
 import CustomTable from '@/components/common/Table';
 import EditIcon from '@mui/icons-material/Edit';
-import { useRouter } from 'next/router';
 import { CSVLink } from 'react-csv';
 import CustomSelect from '@/components/common/Select';
 import { useState } from 'react';
 import React from 'react';
+import EditReport from '@/components/EditReport';
 
 const options = [
   { label: 'Серпень 2023', value: 'august 2023' },
@@ -18,10 +18,13 @@ const options = [
 
 const AdminReport = () => {
   const classes = useAdminReportStyles();
-  const router = useRouter();
   const [selectValue, setSelectValue] = useState(
     options[options.length - 1].value
   );
+  const [openEditModal, setOpenEditModal] = useState(null);
+
+  const handleOpenModal = rowData => setOpenEditModal(rowData);
+  const handleCloseModal = () => setOpenEditModal(null);
 
   const columns = [
     {
@@ -72,9 +75,7 @@ const AdminReport = () => {
     {
       icon: <EditIcon />,
       label: 'Edit',
-      onClick: rowData => {
-        router.push(`report/${rowData.id}/edit`);
-      },
+      onClick: rowData => handleOpenModal(rowData),
     },
   ];
 
@@ -114,6 +115,11 @@ const AdminReport = () => {
         <Box sx={classes.tableWrapper}>
           <CustomTable columns={columns} data={data} actions={actions} />
         </Box>
+        <EditReport
+          open={!!openEditModal}
+          onClose={handleCloseModal}
+          report={openEditModal}
+        />
       </Box>
     </AdminLayout>
   );
