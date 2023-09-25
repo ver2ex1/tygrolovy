@@ -17,7 +17,6 @@
     "animate.css": "^4.1.1",
     "animejs": "^3.2.1",
     "copy-to-clipboard": "^3.3.3",
-    "eslint": "8.35.0",
     "eslint-config-next": "13.2.3",
     "i18next": "^22.4.11",
     "i18next-browser-languagedetector": "^7.0.1",
@@ -30,6 +29,7 @@
     "react-burger-menu": "^3.0.9",
     "react-csv": "^2.2.2",
     "react-dom": "18.2.0",
+    "react-dropzone": "^14.2.3",
     "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.43.5",
     "react-i18next": "^12.2.0",
@@ -41,6 +41,8 @@
   },
   "devDependencies": {
     "@types/node": "20.6.2",
+    "eslint": "^8.50.0",
+    "eslint-plugin-react": "^7.33.2",
     "prettier": "^3.0.3"
   }
 }

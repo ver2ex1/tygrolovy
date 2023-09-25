@@ -7,7 +7,7 @@ import 'animate.css/animate.min.css';
 import Layout from './common/Layout';
 import dynamic from 'next/dynamic';
 import Loading from './common/Loading';
-
+import React from 'react';
 
 const AboutPage = dynamic(() => import('@/components/About'), {
   suspense: true,
@@ -45,16 +45,16 @@ const Landing = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Header />
-      <Layout href='about'>
+      <Layout href="about">
         <AboutPage />
       </Layout>
-      <Layout href='report'>
+      <Layout href="report">
         <ReportPage />
       </Layout>
-      <Layout href='donate'>
+      <Layout href="donate">
         <DonatePage />
       </Layout>
-      <Layout href='contacts'>
+      <Layout href="contacts">
         <ContactsPage />
       </Layout>
       <Footer />

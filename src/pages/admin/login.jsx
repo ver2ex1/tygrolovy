@@ -1,11 +1,6 @@
+import React from 'react';
 import useAdminLoginStyles from '@/styles/adminLoginStyles';
-import {
-  Box,
-  Button,
-  IconButton,
-  InputAdornment,
-  TextField,
-} from '@mui/material';
+import { Box, Button, InputAdornment, TextField } from '@mui/material';
 import { useEffect, useState } from 'react';
 import anime from 'animejs';
 import { useForm } from 'react-hook-form';
@@ -51,12 +46,12 @@ const AdminLogin = () => {
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-  const onSubmit = handleSubmit((data) => {
+  const onSubmit = handleSubmit(data => {
     console.log(data);
   });
   return (
     <div
-      className='animated-background'
+      className="animated-background"
       style={{
         width: '100vw',
         height: '100vh',
@@ -68,18 +63,18 @@ const AdminLogin = () => {
       <form onSubmit={onSubmit}>
         <Box sx={classes.form}>
           <TextField
-            placeholder='Логін'
+            placeholder="Логін"
             {...register('login')}
             helperText={errors?.login?.message}
           />
           <TextField
-            placeholder='Пароль'
+            placeholder="Пароль"
             {...register('password')}
             helperText={errors?.password?.message}
             type={showPassword ? 'text' : 'password'}
             InputProps={{
               endAdornment: (
-                <InputAdornment position='end'>
+                <InputAdornment position="end">
                   <RemoveRedEyeIcon
                     onClick={handleClickShowPassword}
                     style={{ cursor: 'pointer' }}
@@ -88,7 +83,7 @@ const AdminLogin = () => {
               ),
             }}
           />
-          <Button variant='contained' type='submit'>
+          <Button variant="contained" type="submit">
             Увійти
           </Button>
         </Box>

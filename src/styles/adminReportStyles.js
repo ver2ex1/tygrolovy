@@ -29,7 +29,23 @@ const useAdminReportStyles = () => {
 
 export const useAddReportStyles = () => {
   return {
-    root: {},
+    root: {
+      padding: '24px',
+      '& h5': {
+        marginBottom: '32px',
+      },
+      '& .MuiTextField-root': {
+        '& .MuiInputBase-root': {
+          width: '350px',
+          height: '44px',
+        },
+      },
+    },
+    formWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '16px',
+    },
   };
 };
 
