@@ -16,6 +16,14 @@ const useAdminReportStyles = () => {
       justifyContent: 'space-between',
       alignItems: 'center',
     },
+    leftHeaderPart: {
+      display: 'flex',
+      gap: '12px',
+      alignItems: 'center',
+    },
+    createCSVButton: {
+      width: '200px',
+    },
   };
 };
 
