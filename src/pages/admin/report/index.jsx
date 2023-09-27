@@ -6,22 +6,21 @@ import Link from 'next/link';
 import CustomTable from '@/components/common/Table';
 import EditIcon from '@mui/icons-material/Edit';
 import { CSVLink } from 'react-csv';
-import CustomSelect from '@/components/common/Select';
 import { useState } from 'react';
 import React from 'react';
 import EditReport from '@/components/EditReport';
-
-const options = [
-  { label: 'Серпень 2023', value: 'august 2023' },
-  { label: 'Вересень 2023', value: 'September 2023' },
-];
+import MonthYearPicker from '@/components/common/DatePicker';
 
 const AdminReport = () => {
   const classes = useAdminReportStyles();
-  const [selectValue, setSelectValue] = useState(
-    options[options.length - 1].value
-  );
+
   const [openEditModal, setOpenEditModal] = useState(null);
+
+  const [date, setDate] = useState();
+
+  const handleChangeDatePicker = value => {
+    setDate([value[0], value[1]]);
+  };
 
   const handleOpenModal = rowData => setOpenEditModal(rowData);
   const handleCloseModal = () => setOpenEditModal(null);
@@ -100,10 +99,10 @@ const AdminReport = () => {
             </Button>
           </Link>
           <Box sx={classes.leftHeaderPart}>
-            <CustomSelect
-              options={options}
-              value={selectValue}
-              onChange={e => setSelectValue(e.target.value)}
+            <MonthYearPicker
+              isRange
+              onChange={handleChangeDatePicker}
+              value={date}
             />
             <CSVLink data={csvData} filename={'Звіт.csv'}>
               <Button variant="contained" sx={classes.createCSVButton}>

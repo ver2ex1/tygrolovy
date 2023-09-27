@@ -15,13 +15,16 @@ const useAdminReportStyles = () => {
       display: 'flex',
       justifyContent: 'space-between',
       alignItems: 'center',
+      '& .MuiInputBase-root': {
+        height: '40px',
+      },
     },
     leftHeaderPart: {
       display: 'flex',
-      gap: '12px',
       alignItems: 'center',
     },
     createCSVButton: {
+      marginLeft: '12px',
       width: '200px',
     },
   };
