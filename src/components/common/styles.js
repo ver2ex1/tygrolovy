@@ -17,7 +17,7 @@ export const headerStyles = () => {
   return {
     wrapper: {
       background: theme.palette.primary.main,
-      padding: '20px',
+      padding: '16px 40px',
       boxShadow: '0 3px 5px rgba(57, 63, 72, 0.3)',
       color: theme.palette.primary.light,
       '& p': {
@@ -32,7 +32,6 @@ export const headerStyles = () => {
       },
     },
     logo: {
-      paddingBottom: '10px',
       [theme.breakpoints.down('md')]: {
         width: '130px',
       },
@@ -45,7 +44,7 @@ export const headerStyles = () => {
     },
     links: {
       display: 'flex',
-      gap: '5px',
+      gap: '16px',
       [theme.breakpoints.down('sm')]: {
         display: 'flex !important',
         flexDirection: 'column !important',
@@ -56,30 +55,51 @@ export const headerStyles = () => {
       marginLeft: 'auto',
       marginRight: '70px',
     },
-    divider: {
-      height: '16px',
-      borderLeft: `1px solid ${theme.palette.primary.light}`,
-    },
     link: {
       display: 'flex',
       gap: '5px',
       alignItems: 'center',
       '& a': {
         cursor: 'pointer',
-        color: theme.palette.primary.light,
-        fontWeight: 600,
-        backgroundImage: `linear-gradient(to right,${theme.palette.primary.dark},${theme.palette.primary.dark} 50%,${theme.palette.primary.light} 50%)`,
-        backgroundSize: '200% 100%',
-        backgroundPosition: '-100%',
-        WebkitBackgroundClip: 'text',
-        ' -webkit-text-fill-color': 'transparent',
-        transition: 'all 0.3s ease-in-out',
+        color: theme.palette.primary.dark,
+        transition: 'color 0.3s ease-in-out',
         padding: '2px',
         textDecoration: 'none',
+        fontSize: '18px',
         '&:hover': {
-          backgroundPosition: 0,
+          color: theme.palette.primary.light,
         },
       },
+    },
+    actions: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '32px',
+    },
+    langDropDown: {
+      display: 'flex',
+      gap: '8px',
+      alignItems: 'center',
+      cursor: 'pointer',
+    },
+    langDropDownContent: {
+      '& .MuiPaper-root': {
+        background: 'rgba(43, 56, 38, 0.90)',
+      },
+    },
+    langDropDownItem: {
+      color: theme.palette.primary.light,
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+    },
+    arrowDown: {
+      color: theme.palette.secondary.main,
+      transition: 'opacity 0.3s ease',
+    },
+    arrowUp: {
+      color: theme.palette.primary.light,
+      transform: 'rotate(180deg)',
     },
     mobileLink: {
       '& a': {
@@ -93,13 +113,11 @@ export const headerStyles = () => {
       alignItems: 'center',
       textDecoration: 'none',
       color: theme.palette.primary.light,
-      fontWeight: 600,
-      background: theme.palette.primary.dark,
-      padding: '10px 15px',
-      borderRadius: '8px',
+      background: theme.palette.secondary.main,
+      padding: '8px',
       fontSize: 16,
-      margin: '0px 5px',
       cursor: 'pointer',
+      fontSize: '18px',
     },
     mobileDonate: {
       display: 'flex',

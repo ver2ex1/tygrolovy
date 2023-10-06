@@ -1,7 +1,6 @@
 import { headerStyles } from './styles';
-import { Box, Typography, Switch } from '@mui/material';
+import { Box, Menu as MUIMenu, MenuItem } from '@mui/material';
 import Logo from '../../assets/images/Logo';
-import { Typewriter } from 'react-simple-typewriter';
 import UkraineFlag from '../../assets/images/UkraineFlag';
 import UKFlag from '../../assets/images/UKFlag';
 import { useTranslation } from 'next-i18next';
@@ -11,56 +10,51 @@ import { slide as Menu } from 'react-burger-menu';
 import { Link as AnchorLink } from 'react-scroll/modules';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import ArrowDown from '@/assets/images/ArrowDown';
 
 const links = [
-  { href: 'about', title: 'about.title' },
+  { href: 'about', title: 'about.title_fund' },
   { href: 'report', title: 'reporting.title' },
   { href: 'contacts', title: 'contacts.title' },
 ];
 
 const Header = () => {
   const classes = headerStyles();
-  const { t, i18n } = useTranslation();
-  const [checked, setChecked] = useState(
-    typeof window !== 'undefined' &&
-      localStorage.getItem('i18nextLng') === 'eng'
+  const router = useRouter();
+  const [activeLng, setActiveLng] = useState(
+    (typeof window !== 'undefined' && localStorage.getItem('i18nextLng')) ||
+      'ua'
   );
+  const { t, i18n } = useTranslation();
   const [isOpen, setOpen] = useState(false);
   const handleSideBar = () => {
     setOpen(!isOpen);
   };
 
+  const [anchorEl, setAnchorEl] = useState(null);
+
+  const handleOpenMenu = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleCloseMenu = () => {
+    setAnchorEl(null);
+  };
+
   const closeSideBar = () => {
     setOpen(false);
   };
-  const router = useRouter();
-  const handleSwitch = ({
-    event: {
-      target: { checked },
-    },
-  }) => {
-    if (checked) {
-      i18n.changeLanguage('eng');
-      router.push(
-        {
-          route: router.pathname,
-          query: router.query,
-        },
-        router.asPath,
-        { locale: 'eng' }
-      );
-    } else {
-      i18n.changeLanguage('ua');
-      router.push(
-        {
-          route: router.pathname,
-          query: router.query,
-        },
-        router.asPath,
-        { locale: 'ua' }
-      );
-    }
-    setChecked(checked);
+  const handleChangeLanguage = ({ value }) => {
+    setActiveLng(value);
+    i18n.changeLanguage(value);
+    router.push(
+      {
+        route: router.pathname,
+        query: router.query,
+      },
+      router.asPath,
+      { locale: value }
+    );
   };
   const { width } = useWindowSize();
   return (
@@ -68,11 +62,6 @@ const Header = () => {
       <AnchorLink to='/'>
         <Logo sx={classes.logo} />
       </AnchorLink>
-      {width >= 1120 && (
-        <Typography variant='h5' sx={classes.title}>
-          <Typewriter words={['be a voice. not an echo!']} typeSpeed='120' />
-        </Typography>
-      )}
       {width >= 660 && (
         <Box sx={classes.links}>
           {links.map((link, index) => (
@@ -80,28 +69,62 @@ const Header = () => {
               <AnchorLink to={link.href}>
                 <span>{t(link.title)}</span>
               </AnchorLink>
-              {links.length - 1 !== index && (
-                <div style={classes.divider}></div>
-              )}
             </Box>
           ))}
+        </Box>
+      )}
+      {width >= 660 && (
+        <Box sx={classes.actions}>
           <AnchorLink to='donate' style={classes.donate}>
             {t('donate.title')}
           </AnchorLink>
-          <Switch
-            color='success'
-            icon={<UkraineFlag />}
-            checkedIcon={<UKFlag />}
-            disableRipple
-            onChange={(event) => handleSwitch({ event })}
-            checked={checked}
-          />
+          <Box
+            sx={classes.langDropDown}
+            onClick={handleOpenMenu}
+            aria-controls='language-menu'
+            aria-haspopup='true'
+          >
+            {activeLng === 'ua' ? <UkraineFlag /> : <UKFlag />}
+            <ArrowDown
+              sx={{
+                ...classes.arrowDown,
+                opacity: anchorEl ? '0' : '1',
+              }}
+            />
+          </Box>
+          <MUIMenu
+            id='language-menu'
+            anchorEl={anchorEl}
+            keepMounted
+            open={Boolean(anchorEl)}
+            onClose={handleCloseMenu}
+            sx={classes.langDropDownContent}
+          >
+            <MenuItem
+              onClick={() => {
+                handleChangeLanguage({ value: 'ua' });
+                handleCloseMenu();
+              }}
+              sx={classes.langDropDownItem}
+            >
+              <UkraineFlag /> UA
+              <ArrowDown sx={classes.arrowUp} />
+            </MenuItem>
+            <MenuItem
+              onClick={() => {
+                handleChangeLanguage({ value: 'eng' });
+                handleCloseMenu();
+              }}
+              sx={classes.langDropDownItem}
+            >
+              <UKFlag /> EN
+            </MenuItem>
+          </MUIMenu>
         </Box>
       )}
-
       {width < 660 && (
         <>
-          <Switch
+          {/* <Switch
             color='success'
             icon={<UkraineFlag />}
             checkedIcon={<UKFlag />}
@@ -109,7 +132,7 @@ const Header = () => {
             onChange={(event) => handleSwitch({ event })}
             checked={checked}
             sx={classes.switch}
-          />
+          /> */}
           <Menu
             pageWrapId={'page-wrap'}
             outerContainerId={'outer-container'}

@@ -3,10 +3,11 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#9ECDBB',
-      dark: '#34422f',
+      main: '#C7D3C5',
+      dark: '#495544',
       light: '#fff',
     },
+    secondary: { main: '#2B3826' },
   },
   breakpoints: {
     values: {
@@ -27,9 +28,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ['Amazing Grotesk', 'Helvetica', 'Arial', 'sans-serif'].join(
-      ','
-    ),
+    fontFamily: ['NT Somic', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   },
 });
 
