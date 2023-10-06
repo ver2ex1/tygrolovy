@@ -1,5 +1,5 @@
 import { headerStyles } from './styles';
-import { Box, Menu as MUIMenu, MenuItem } from '@mui/material';
+import { Box, Menu as MUIMenu, MenuItem, Typography } from '@mui/material';
 import Logo from '../../assets/images/Logo';
 import UkraineFlag from '../../assets/images/UkraineFlag';
 import UKFlag from '../../assets/images/UKFlag';
@@ -11,6 +11,7 @@ import { Link as AnchorLink } from 'react-scroll/modules';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ArrowDown from '@/assets/images/ArrowDown';
+import Image from 'next/image';
 
 const links = [
   { href: 'about', title: 'about.title_fund' },
@@ -22,11 +23,16 @@ const Header = () => {
   const classes = headerStyles();
   const router = useRouter();
   const [activeLng, setActiveLng] = useState(
-    (typeof window !== 'undefined' && localStorage.getItem('i18nextLng')) ||
-      'ua'
+    typeof window !== 'undefined' && localStorage.getItem('i18nextLng')
   );
   const { t, i18n } = useTranslation();
   const [isOpen, setOpen] = useState(false);
+  const [isOpenMobileLangDropDown, setIsOpenMobileLangDropDown] =
+    useState(false);
+
+  const handleToggleMobileLangDropDown = () =>
+    setIsOpenMobileLangDropDown((prevState) => !prevState);
+
   const handleSideBar = () => {
     setOpen(!isOpen);
   };
@@ -55,6 +61,8 @@ const Header = () => {
       router.asPath,
       { locale: value }
     );
+    closeSideBar();
+    handleToggleMobileLangDropDown();
   };
   const { width } = useWindowSize();
   return (
@@ -123,84 +131,118 @@ const Header = () => {
         </Box>
       )}
       {width < 660 && (
-        <>
-          {/* <Switch
-            color='success'
-            icon={<UkraineFlag />}
-            checkedIcon={<UKFlag />}
-            disableRipple
-            onChange={(event) => handleSwitch({ event })}
-            checked={checked}
-            sx={classes.switch}
-          /> */}
-          <Menu
-            pageWrapId={'page-wrap'}
-            outerContainerId={'outer-container'}
-            right
-            isOpen={isOpen}
-            onOpen={handleSideBar}
-            onClose={handleSideBar}
-            styles={{
-              bmBurgerButton: {
-                position: 'absolute',
-                width: '30px',
-                height: '24px',
-                right: '35px',
-                top: '45px',
-              },
-              bmBurgerBars: {
-                background: '#34422f',
-              },
-              bmBurgerBarsHover: {
-                background: '#fff',
-              },
-              bmCrossButton: {
-                height: '24px',
-                width: '24px',
-              },
-              bmCross: {
-                background: '#fff',
-              },
-              bmMenuWrap: {
-                position: 'fixed',
-                height: '100%',
-                top: 0,
-                width: width > 375 ? '300px' : '100%',
-              },
-              bmMenu: {
-                background: '#34422f',
-                padding: '2.5em 1.5em 0',
-                fontSize: '1.15em',
-              },
-              bmItemList: {
-                padding: '0.8em',
-              },
-              bmOverlay: {
-                background: 'rgba(0, 0, 0, 0.3)',
-              },
-            }}
-          >
-            <Box sx={classes.links}>
-              {links.map((link, index) => (
-                <Box sx={classes.mobileLink} key={link.href}>
-                  <Link href={`#${link.href}`} onClick={closeSideBar}>
-                    {t(link.title)}
-                  </Link>
-                  {links.length - 1 !== index && width >= 660 && (
-                    <div style={classes.divider}></div>
-                  )}
+        <Box sx={classes.actions}>
+          <AnchorLink to='donate' style={classes.donate}>
+            {t('donate.title')}
+          </AnchorLink>
+          <Box sx={{ position: 'relative' }}>
+            <Menu
+              pageWrapId={'page-wrap'}
+              outerContainerId={'outer-container'}
+              right
+              isOpen={isOpen}
+              onOpen={handleSideBar}
+              onClose={handleSideBar}
+              customBurgerIcon={
+                <Image
+                  src='/assets/burgerButton.svg'
+                  alt='burgerButton'
+                  width={24}
+                  height={24}
+                />
+              }
+              customCrossIcon={
+                <Image
+                  src='/assets/crossIcon.svg'
+                  alt='burgerButton'
+                  width={24}
+                  height={24}
+                />
+              }
+              styles={{
+                bmBurgerButton: {
+                  height: '24px',
+                  opacity: isOpen ? '0' : '1',
+                },
+                bmBurgerBarsHover: {
+                  background: '#fff',
+                },
+                bmCrossButton: {
+                  height: '24px',
+                  width: '24px',
+                  position: 'absolute',
+                  top: 22,
+                  right: 15,
+                },
+                bmMenuWrap: {
+                  position: 'fixed',
+                  height: '100%',
+                  top: 0,
+                  width: '100%',
+                },
+                bmMenu: {
+                  background: 'rgba(43, 56, 38, 0.90)',
+                  padding: '2.5em 1.5em 0',
+                  fontSize: '1.15em',
+                },
+                bmOverlay: {
+                  display: 'none',
+                },
+              }}
+            >
+              <Box sx={classes.links}>
+                {links.map((link, index) => (
+                  <Box sx={classes.mobileLink} key={link.href}>
+                    <Link href={`#${link.href}`} onClick={closeSideBar}>
+                      {t(link.title)}
+                    </Link>
+                    {links.length - 1 !== index && width >= 660 && (
+                      <div style={classes.divider}></div>
+                    )}
+                  </Box>
+                ))}
+                <Box sx={classes.langDropDown}>
+                  <span
+                    style={classes.mobileDropDownTitle}
+                    onClick={handleToggleMobileLangDropDown}
+                  >
+                    {activeLng === 'ua' ? <UkraineFlag /> : <UKFlag />}
+                    {activeLng === 'ua' ? 'UA' : 'EN'}
+                  </span>
+                  <ArrowDown
+                    sx={{
+                      ...classes.arrowDown,
+                      transform: isOpenMobileLangDropDown
+                        ? 'rotate(180deg)'
+                        : 'rotate(0deg)',
+                      transition: 'transform 0.2s ease',
+                    }}
+                  />
                 </Box>
-              ))}
-              <Link
-                href='#donate'
-                style={classes.mobileDonate}
-                onClick={closeSideBar}
-              >
-                {t('donate.title')}
-              </Link>
-            </Box>
-          </Menu>
-        </>
+                {isOpenMobileLangDropDown && (
+                  <span
+                    style={classes.mobileDropDownTitle}
+                    onClick={() =>
+                      handleChangeLanguage({
+                        value: activeLng === 'ua' ? 'eng' : 'ua',
+                      })
+                    }
+                  >
+                    {activeLng === 'ua' ? <UKFlag /> : <UkraineFlag />}
+                    {activeLng === 'ua' ? 'EN' : 'UA'}
+                  </span>
+                )}
+                <Link
+                  href='#donate'
+                  style={classes.mobileDonate}
+                  onClick={closeSideBar}
+                >
+                  {t('donate.title')}
+                </Link>
+              </Box>
+            </Menu>
+          </Box>
+        </Box>
       )}
     </Box>
   );

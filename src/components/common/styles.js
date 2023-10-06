@@ -27,8 +27,7 @@ export const headerStyles = () => {
       alignItems: 'center',
       justifyContent: 'space-between',
       [theme.breakpoints.down('sm')]: {
-        padding: '20px 5px',
-        justifyContent: 'initial',
+        padding: '8px 16px',
       },
     },
     logo: {
@@ -44,7 +43,7 @@ export const headerStyles = () => {
     },
     links: {
       display: 'flex',
-      gap: '16px',
+      gap: '18px',
       [theme.breakpoints.down('sm')]: {
         display: 'flex !important',
         flexDirection: 'column !important',
@@ -75,12 +74,18 @@ export const headerStyles = () => {
       display: 'flex',
       alignItems: 'center',
       gap: '32px',
+      [theme.breakpoints.down('md')]: {
+        gap: '24px',
+      },
     },
     langDropDown: {
       display: 'flex',
       gap: '8px',
       alignItems: 'center',
       cursor: 'pointer',
+      [theme.breakpoints.down('sm')]: {
+        width: 'fit-content',
+      },
     },
     langDropDownContent: {
       '& .MuiPaper-root': {
@@ -96,15 +101,24 @@ export const headerStyles = () => {
     arrowDown: {
       color: theme.palette.secondary.main,
       transition: 'opacity 0.3s ease',
+      [theme.breakpoints.down('sm')]: {
+        color: theme.palette.primary.light,
+      },
     },
     arrowUp: {
       color: theme.palette.primary.light,
       transform: 'rotate(180deg)',
     },
+    mobileDropDownTitle: {
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+      fontWeight: 400,
+      fontSize: '18px',
+    },
     mobileLink: {
       '& a': {
         color: theme.palette.primary.light,
-        fontWeight: 600,
         textDecoration: 'none',
       },
     },
@@ -123,12 +137,10 @@ export const headerStyles = () => {
       display: 'flex',
       alignItems: 'center',
       textDecoration: 'none',
-      color: theme.palette.primary.dark,
-      fontWeight: 600,
-      background: theme.palette.primary.main,
-      padding: '10px 15px',
-      borderRadius: '8px',
-      fontSize: 18,
+      color: theme.palette.secondary.main,
+      background: theme.palette.primary.light,
+      padding: '8px',
+      fontSize: 16,
       width: 'fit-content',
     },
   };
