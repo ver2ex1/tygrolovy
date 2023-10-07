@@ -14,18 +14,23 @@ const About = () => {
         <Typography variant='body1' sx={classes.textBold}>
           {t('about.article1')}
         </Typography>
-        <Typography variant='body1' sx={classes.text}>
-          {t('about.article2')}
-        </Typography>
-        <Typography variant='body1' sx={classes.text}>
-          {t('about.article3')}
-        </Typography>
-        <Typography variant='body1' sx={classes.text}>
-          {t('about.article4')}
-        </Typography>
-        <Typography variant='body1' sx={classes.text}>
-          {t('about.article5')}
-        </Typography>
+        <Box>
+          <Typography
+            variant='body1'
+            sx={classes.textBold}
+            dangerouslySetInnerHTML={{ __html: t('about.article2') }}
+          />
+          <Typography
+            variant='body1'
+            sx={classes.textBoldYellow}
+            dangerouslySetInnerHTML={{ __html: t('about.article3') }}
+          />
+          <Typography variant='body1' sx={classes.textBold}>
+            {t('about.article4')}
+            <br />
+            {t('about.article5')}
+          </Typography>
+        </Box>
       </Box>
     </Box>
   );

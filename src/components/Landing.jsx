@@ -8,6 +8,9 @@ import Layout from './common/Layout';
 import dynamic from 'next/dynamic';
 import Loading from '@/components/common/Loading';
 
+const HeadPage = dynamic(() => import('@/components/Head'), {
+  suspense: true,
+});
 const AboutPage = dynamic(() => import('@/components/About'), {
   suspense: true,
 });
@@ -44,6 +47,9 @@ const Landing = () => {
   return (
     <Suspense fallback={<Loading />}>
       <Header />
+      <Layout>
+        <HeadPage />
+      </Layout>
       <Layout href='about'>
         <AboutPage />
       </Layout>
@@ -57,30 +63,6 @@ const Landing = () => {
         <ContactsPage />
       </Layout>
       <Footer />
-      <div
-        style={{
-          position: 'fixed',
-          right: 15,
-          bottom: 25,
-        }}
-      >
-        <div
-          style={{
-            height: '50px',
-            width: '50px',
-            borderRadius: '50px',
-            background: `linear-gradient(to top, #34422f ${scrollTop}%,#9ECDBB ${scrollTop}%)`,
-            boxShadow: '0 0 10px 5px rgba(0,0,0,0.1)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            cursor: 'pointer',
-          }}
-          onClick={handleScrollToTop}
-        >
-          <NorthIcon sx={{ color: '#fff', width: '20px' }} />
-        </div>
-      </div>
     </Suspense>
   );
 };

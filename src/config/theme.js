@@ -11,11 +11,12 @@ const theme = createTheme({
   },
   breakpoints: {
     values: {
-      xs: 0,
+      xs: 375,
       sm: 660,
       md: 900,
       lg: 1025,
-      xl: 1536,
+      xl: 1439,
+      xxl: 2559,
     },
   },
   components: {

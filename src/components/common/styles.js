@@ -73,7 +73,7 @@ export const headerStyles = () => {
     actions: {
       display: 'flex',
       alignItems: 'center',
-      gap: '32px',
+      gap: '48px',
       [theme.breakpoints.down('md')]: {
         gap: '24px',
       },
@@ -150,12 +150,21 @@ export const aboutStyles = () => {
   return {
     wrapper: {
       display: 'flex',
-      padding: '3%',
+      padding: '128px 0',
       flexDirection: 'column',
-      gap: '30px',
+      gap: '32px',
       alignItems: 'center',
+      background: theme.palette.primary.main,
+      height: '100vh',
+      [theme.breakpoints.down('lg')]: {
+        padding: '25px 0',
+      },
       [theme.breakpoints.down('sm')]: {
-        gap: '20px',
+        gap: '16px',
+        padding: '32px 16px',
+      },
+      [theme.breakpoints.down(321)]: {
+        padding: '12px',
       },
     },
     title: {
@@ -164,7 +173,7 @@ export const aboutStyles = () => {
       padding: '15px 5px 0px 5px',
       textAlign: 'center',
       [theme.breakpoints.down('sm')]: {
-        fontSize: '32px',
+        fontSize: '24px',
       },
     },
     textWrapper: {
@@ -186,10 +195,50 @@ export const aboutStyles = () => {
       },
     },
     textBold: {
-      fontWeight: 800,
-      fontSize: '18px',
-      fontStyle: 'normal',
-      color: theme.palette.primary.dark,
+      fontSize: '24px',
+      '& span': {
+        display: 'inline-block',
+        position: 'relative',
+        zIndex: '1',
+        textDecoration: 'underline',
+        textDecorationColor: '#77ADF5',
+        textDecorationThickness: '3px',
+      },
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '20px',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '18px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+      [theme.breakpoints.down(376)]: {
+        fontSize: '14px',
+      },
+    },
+    textBoldYellow: {
+      fontSize: '24px',
+      '& span': {
+        display: 'inline-block',
+        position: 'relative',
+        zIndex: '1',
+        textDecoration: 'underline',
+        textDecorationColor: '#F5E14D',
+        textDecorationThickness: '3px',
+      },
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '20px',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '18px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+      [theme.breakpoints.down(376)]: {
+        fontSize: '14px',
+      },
     },
   };
 };
@@ -602,6 +651,92 @@ export const footerStyles = () => {
       color: theme.palette.primary.light,
       fontWeight: 600,
       textDecoration: 'none',
+    },
+  };
+};
+
+export const useHeadBlockStyles = () => {
+  return {
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      padding: '130px 0',
+      gap: '96px',
+      [theme.breakpoints.down('md')]: {
+        padding: '80px 0',
+      },
+    },
+    imageWrapper: {
+      '& img': {
+        [theme.breakpoints.down('md')]: {
+          maxWidth: '700px',
+        },
+        [theme.breakpoints.down('sm')]: {
+          maxWidth: '400px',
+        },
+        [theme.breakpoints.down(376)]: {
+          maxWidth: '320px',
+        },
+        [theme.breakpoints.down(321)]: {
+          maxWidth: '300px',
+        },
+        [theme.breakpoints.up('xxl')]: {
+          width: '1500px',
+          height: '900px',
+        },
+      },
+    },
+    buttonsWrapper: {
+      display: 'flex',
+      gap: '10px',
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
+        gap: '8px',
+        '& a': {
+          width: '328px !important',
+        },
+      },
+      [theme.breakpoints.down(321)]: {
+        '& a': {
+          width: '315px !important',
+        },
+      },
+      [theme.breakpoints.up('xxl')]: {
+        gap: '25px',
+        '& a': {
+          width: '500px !important',
+          fontSize: '32px !important',
+        },
+      },
+    },
+    donate: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textDecoration: 'none',
+      color: theme.palette.primary.light,
+      background: theme.palette.secondary.main,
+      padding: '8px',
+      fontSize: 16,
+      cursor: 'pointer',
+      fontSize: '18px',
+      width: '332px',
+    },
+    request: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textDecoration: 'none',
+      color: theme.palette.primary.dark,
+      background: theme.palette.primary.light,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      padding: '8px',
+      fontSize: 16,
+      cursor: 'pointer',
+      fontSize: '18px',
+      width: '332px',
     },
   };
 };
