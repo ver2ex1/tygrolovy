@@ -406,9 +406,10 @@ export const contactsStyle = (width) => {
   return {
     wrapper: {
       display: 'flex',
-      padding: '20px',
+      padding: '128px 0px',
       flexDirection: 'column',
-      gap: '30px',
+      gap: '64px',
+      alignItems: 'center',
       [theme.breakpoints.down('sm')]: {
         padding: '5px',
         gap: '10px',
@@ -417,63 +418,60 @@ export const contactsStyle = (width) => {
     title: {
       fontSize: '48px',
       fontWeight: 600,
-      color: theme.palette.primary.dark,
-      textStroke: '1px #fff',
       [theme.breakpoints.down('sm')]: {
         fontSize: '32px',
       },
     },
     content: {
       display: 'flex',
-      justifyContent: 'space-between',
-      gap: '50px',
-      [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-      },
+      gap: '25px',
+      width: '100%',
+      padding: '0px 64px',
       [theme.breakpoints.down('md')]: {
-        gap: '20px',
+        padding: '0px 32px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column-reverse',
+        gap: '32px',
+        padding: '0px 16px',
       },
     },
     column: {
-      width: 'calc(100% / 2)',
-      background: theme.palette.primary.main,
-      minHeight: '80vh',
-      height: '100%',
-      borderRadius: '8px',
-      textAlign: 'initial',
-      padding: '2%',
+      width: '50%',
       [theme.breakpoints.down('sm')]: {
         width: '100%',
-        minHeight: '250px',
-        height: 'initial',
       },
-    },
-    emailWrapper: {
-      marginBottom: '30px',
     },
     label: {
       fontWeight: 600,
-      borderBottom: '2px solid',
-      width: 'fit-content',
-      fontSize: '20px',
+      marginBottom: '16px',
+      fontSize: '24px',
+      textAlign: 'center',
     },
     email: {
       textDecoration: 'none',
-      fontWeight: 600,
-      color: theme.palette.primary.light,
-      fontSize: '28px',
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '24px',
-      },
+      color: theme.palette.secondary.main,
+      fontSize: '24px',
+    },
+    emailWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    socialIconsWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      alignItems: 'center',
+      marginBottom: '32px',
     },
     socialIcons: {
       display: 'flex',
-      marginTop: '5px',
-      gap: '10px',
+      gap: '16px',
     },
     icon: {
       cursor: 'pointer',
-      fill: '#fff',
+      fill: theme.palette.secondary.main,
     },
     formTitle: {
       fontWeight: 600,
@@ -485,22 +483,34 @@ export const contactsStyle = (width) => {
       gap: width > 1024 ? '30px' : '20px',
     },
     textarea: {
-      height: '70px',
+      height: '150px',
       resize: 'none',
-      borderRadius: '12px',
-      padding: '10px',
-      fontWeight: 600,
-      fontFamily: 'Amazing Grotesk',
+      padding: '8px',
+      fontFamily: 'NT Somic',
       outline: 'none',
       border: '0px',
+      fontSize: '18px',
+    },
+    doubleInputsWrapper: {
+      display: 'flex',
+      gap: '16px',
+      width: '100%',
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
+      },
     },
     formInput: {
+      width: '50%',
       '& .MuiInputBase-input': {
-        background: theme.palette.primary.light,
         height: '40px',
-        paddingLeft: '5px',
-        borderRadius: '12px',
-        fontWeight: 600,
+        padding: '8px',
+        fontSize: '18px',
+        '&::placeholder': {
+          color: theme.palette.primary.main,
+        },
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
       },
     },
     formLabel: {
@@ -513,14 +523,14 @@ export const contactsStyle = (width) => {
       position: 'relative',
     },
     formButton: {
-      background: theme.palette.primary.dark,
+      background: theme.palette.secondary.main,
+      boxShadow: 'none',
+      borderRadius: '0px',
       color: theme.palette.primary.light,
-      fontWeight: 600,
-      height: '40px',
+      textTransform: 'none',
       fontSize: '18px',
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '16px',
-      },
+      padding: '8px 0px',
+      fontWeight: 400,
     },
     error: {
       fontSize: '12px',
@@ -529,18 +539,6 @@ export const contactsStyle = (width) => {
       position: 'absolute',
       bottom: -20,
     },
-    buttonWrapper: {
-      display: 'flex',
-      height: width > 1024 ? '70px' : '50px',
-      alignItems: 'end',
-      '& button': {
-        width: '100%',
-        '&.Mui-disabled': {
-          background: 'gray',
-          color: '#fff',
-        },
-      },
-    },
   };
 };
 
@@ -548,62 +546,38 @@ export const footerStyles = () => {
   return {
     wrapper: {
       background: theme.palette.primary.main,
-      padding: '0% 2% 2% 2%',
+      padding: '16px 40px',
       display: 'flex',
       justifyContent: 'space-between',
+      alignItems: 'center',
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
+        gap: '8px',
       },
     },
     logo: {
       width: '150px',
     },
     pdfLink: {
-      color: theme.palette.primary.light,
-      fontWeight: 600,
+      color: theme.palette.primary.dark,
       cursor: 'pointer',
       textDecoration: 'none',
-    },
-    leftSide: {
-      display: 'flex',
-      flexDirection: 'column',
+      fontSize: '18px',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '13px',
+      },
     },
     links: {
-      paddingLeft: '17px',
       display: 'flex',
-      gap: '10px',
+      gap: '32px',
       [theme.breakpoints.down('sm')]: {
+        gap: '16px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        gap: '8px',
         flexDirection: 'column',
+        alignItems: 'center',
       },
-    },
-    rightSide: {
-      padding: '2% 5% 0% 0%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'end',
-      gap: '10px',
-      [theme.breakpoints.down('sm')]: {
-        alignItems: 'start',
-        paddingLeft: '17px',
-        flexDirection: 'column-reverse',
-      },
-    },
-    donateLink: {
-      textDecoration: 'none',
-      color: theme.palette.primary.light,
-      fontWeight: 600,
-      background: theme.palette.primary.dark,
-      padding: '4%',
-      width: '150px',
-      textAlign: 'center',
-      [theme.breakpoints.down('sm')]: {
-        width: '210px',
-      },
-    },
-    mail: {
-      color: theme.palette.primary.light,
-      fontWeight: 600,
-      textDecoration: 'none',
     },
   };
 };

@@ -21,7 +21,7 @@ const Head = () => {
         <AnchorLink to='donate' style={classes.donate}>
           {t('donate.title')}
         </AnchorLink>
-        <AnchorLink to='request' style={classes.request}>
+        <AnchorLink to='contacts' style={classes.request}>
           {t('contacts.request')}
         </AnchorLink>
       </Box>
