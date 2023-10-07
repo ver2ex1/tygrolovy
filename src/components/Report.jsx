@@ -67,10 +67,12 @@ const Report = () => {
       <Box sx={classes.positionsWrapper}>
         {Object.keys(reportData).map((key) => (
           <Box sx={classes.position} key={key}>
-            <p style={classes.positionTitle}>{t(`reporting.${key}`)}:</p>
-            <p style={classes.positionItems}>
+            <Typography sx={classes.positionTitle}>
+              {t(`reporting.${key}`)}:
+            </Typography>
+            <Typography sx={classes.positionItems}>
               {reportData[key].map((item) => t(`reporting.${item}`)).join(', ')}
-            </p>
+            </Typography>
           </Box>
         ))}
       </Box>

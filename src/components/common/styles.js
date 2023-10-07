@@ -18,7 +18,6 @@ export const headerStyles = () => {
     wrapper: {
       background: theme.palette.primary.main,
       padding: '16px 40px',
-      boxShadow: '0 3px 5px rgba(57, 63, 72, 0.3)',
       color: theme.palette.primary.light,
       '& p': {
         fontWeight: 600,
@@ -252,6 +251,10 @@ export const reportStyles = () => {
       display: 'flex',
       flexDirection: 'column',
       gap: '32px',
+      [theme.breakpoints.down('sm')]: {
+        gap: '16px',
+        padding: '32px 8px',
+      },
     },
     title: {
       fontWeight: 600,
@@ -268,16 +271,22 @@ export const reportStyles = () => {
     },
     subTitle: {
       fontSize: '24px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+        textAlign: 'center',
+      },
     },
     subTitleWrapper: {
       display: 'flex',
       justifyContent: 'center',
-      whiteSpace: 'nowrap',
     },
     positionsWrapper: {
       display: 'flex',
       flexDirection: 'column',
       gap: '32px',
+      [theme.breakpoints.down('sm')]: {
+        gap: '16px',
+      },
     },
     position: {
       padding: '32px',
@@ -290,10 +299,16 @@ export const reportStyles = () => {
       fontSize: '18px',
       fontWeight: 500,
       margin: 0,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
     },
     positionItems: {
       margin: 0,
       fontSize: '16px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '14px',
+      },
     },
   };
 };
