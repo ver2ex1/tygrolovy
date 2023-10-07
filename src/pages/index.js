@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import Landing from '../components/Landing';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { getImageReportsPaths } from './api/listImage';
 
-export default function Home() {
+export default function Home({reportImages}) {
   return (
     <>
       <Head>
@@ -70,16 +71,20 @@ export default function Home() {
         ></script>
       </Head>
       <main>
-        <Landing />
+        <Landing reportImages={reportImages}/>
       </main>
     </>
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
+  const reportImages = getImageReportsPaths();
+  const translations = await serverSideTranslations(locale);
+
   return {
     props: {
-      ...(await serverSideTranslations(locale)),
+      reportImages,
+      ...translations,
     },
   };
 }

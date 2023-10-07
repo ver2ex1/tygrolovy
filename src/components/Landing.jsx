@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { Suspense } from 'react';
 import Header from './common/Header';
 import Footer from './common/Footer';
-import NorthIcon from '@mui/icons-material/North';
 import 'animate.css/animate.min.css';
 import Layout from './common/Layout';
 import dynamic from 'next/dynamic';
@@ -24,7 +23,7 @@ const ContactsPage = dynamic(() => import('@/components/Contacts'), {
   suspense: true,
 });
 
-const Landing = () => {
+const Landing = ({reportImages}) => {
   const [scrollTop, setScrollTop] = useState(0);
   const onScroll = () => {
     const winScroll = document.documentElement.scrollTop;
@@ -44,6 +43,7 @@ const Landing = () => {
 
   const handleScrollToTop = () =>
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log(reportImages)
   return (
     <Suspense fallback={<Loading />}>
       <Header />
