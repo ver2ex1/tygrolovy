@@ -60,10 +60,14 @@
     "donateUah": "Задонатити в гривні",
     "donateEuro": "Задонатити в євро",
     "donateUsd": "Задонатити в доларі",
-    "requisites": "Реквізити"
+    "requisites": "Реквізити",
+    "afu": "ЗСУ",
+    "liqpayPayment": "Оплата за допомогою LiqPay",
+    "charityBank": "Благодійна Банка",
+    "bankInstruction": "Код можна відсканувати або натиснути"
   },
   "contacts": {
-    "title": "Контакти",
+    "title": "Зв’язок з фондом",
     "email": "Пошта",
     "social": "Соціальні мережі",
     "yourName": "Ваше ім'я",

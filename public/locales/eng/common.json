@@ -60,10 +60,14 @@
     "donateUah": "Donate in UAH",
     "donateEuro": "Donate in EUR",
     "donateUsd": "Donate in USD",
-    "requisites": "Requisites"
+    "requisites": "Requisites",
+    "afu": "AFU",
+    "liqpayPayment": "Payment with LiqPay",
+    "charityBank": "Charity Bank",
+    "bankInstruction": "You can scan the code or press"
   },
   "contacts": {
-    "title": "Contacts",
+    "title": "Communication with the fund",
     "email": "Email",
     "social": "Social media",
     "yourName": "Your name",

@@ -317,117 +317,87 @@ export const donateStyles = () => {
   return {
     wrapper: {
       display: 'flex',
-      padding: '3%',
+      padding: '128px 64px',
       flexDirection: 'column',
-      gap: '30px',
       alignItems: 'center',
       height: '100vh',
-      background: '#F5F5F5',
+      [theme.breakpoints.down('md')]: {
+        padding: '32px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        padding: '32px 16px',
+      },
     },
     title: {
-      fontWeight: 600,
-      width: 'fit-content',
-      padding: '0.5%',
-      [theme.breakpoints.down('sm')]: {
+      fontSize: '48px',
+      fontWeight: 700,
+      textAlign: 'center',
+      marginBottom: '64px',
+      [theme.breakpoints.down('md')]: {
+        marginBottom: '16px',
         fontSize: '32px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '24px',
       },
     },
     content: {
       display: 'flex',
+      gap: '10px',
       width: '100%',
-      rowGap: '10px',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
-        gap: 4,
       },
     },
-    donateColumn: {
+    block: {
+      padding: '35px 0px',
+      width: '50%',
       display: 'flex',
       flexDirection: 'column',
-      width: '50%',
-      paddingTop: '5%',
-      gap: 5,
       alignItems: 'center',
-      width: '50%',
-      '& button': {
-        color: theme.palette.primary.light,
-        fontWeight: 600,
-        padding: '3% 3%',
-        fontSize: '18px',
-        borderRadius: '50px',
-        width: '100%',
-      },
-      '& form': {
-        width: '100%',
-      },
+      gap: '32px',
+      background: theme.palette.primary.main,
       [theme.breakpoints.down('md')]: {
         width: '100%',
-        gap: 4,
-        paddingTop: '5%',
-        '& h4': {
-          fontSize: '24px',
+        padding: '12px 0px',
+        '& img': {
+          height: '120px',
+          width: '120px',
         },
       },
     },
-    requisitesColumn: {
-      paddingTop: '5%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '50%',
-      '& h4': {
-        marginBottom: '45px',
-      },
+    blockTitle: {
+      fontSize: '24px',
+      fontWeight: 700,
       [theme.breakpoints.down('sm')]: {
-        width: '100%',
-        '& h4': {
-          fontSize: '24px',
-          marginBottom: '20px',
-        },
+        fontSize: '18px',
       },
     },
-    requisitesContent: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 7,
+    donateButton: {
+      background: theme.palette.secondary.main,
+      boxShadow: 'none',
+      borderRadius: '0px',
+      color: theme.palette.primary.light,
+      textTransform: 'none',
+      fontSize: '24px',
+      padding: '8px 0px',
+      fontWeight: 400,
+      width: '400px',
       [theme.breakpoints.down('md')]: {
-        gap: 5,
+        width: '300px',
       },
-    },
-    requisitesCopy: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    requisitesSymbol: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '40px',
-      height: '56px',
-      background: theme.palette.primary.dark,
-      color: theme.palette.primary.light,
-      borderRadius: '10px 0px 0px 10px',
-      fontWeight: 600,
-    },
-    requisitesInput: {
-      '&.MuiTextField-root': {
-        '& div': {
-          borderRadius: '0px',
-          background: theme.palette.primary.main,
-        },
+      [theme.breakpoints.down('md')]: {
+        width: '250px',
       },
+      height: '47px',
     },
-    requisitesCopyButton: {
-      background: theme.palette.primary.dark,
-      color: theme.palette.primary.light,
-      borderRadius: '0px 10px 10px 0px',
-      width: '40px',
-      height: '56px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      cursor: 'pointer',
+    bankInstruction: {
+      fontSize: '16px',
+      color: theme.palette.secondary.main,
+      textAlign: 'center',
+      [theme.breakpoints.down(321)]: {
+        fontSize: '12px',
+      },
     },
   };
 };
