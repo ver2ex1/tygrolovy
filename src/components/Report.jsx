@@ -1,96 +1,79 @@
-import { useState, useEffect } from 'react';
 import { reportStyles } from './common/styles';
 import { Typography, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
-import useWindowSize from '@/utils/useWindowSize';
-import ArrowCircleRightIcon from '@mui/icons-material/ArrowCircleRight';
-import ArrowCircleLeftIcon from '@mui/icons-material/ArrowCircleLeft';
-import Papa from 'papaparse';
-import Loading from '@/components/common/Loading';
 
 const Report = () => {
   const classes = reportStyles();
   const { t } = useTranslation();
-  const { width } = useWindowSize();
-  const [currentColumn, setCurrentColumn] = useState(1);
-  const [itemsPerColumn] = useState(18);
-  const [reportData, setReportData] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    Papa.parse(
-      'https://docs.google.com/spreadsheets/d/e/2PACX-1vTVPO84e4sSjlkaH46psth_3VvW_dsRNFCBJNAc9pavd68b4VXeBgNGV_tweRV6LYmJMMZY7Cp3Tsno/pub?output=csv',
-      {
-        download: true,
-        header: true,
-        complete: (results) => {
-          setReportData(results.data);
-        },
-      }
-    );
-  }, []);
+  const reportData = {
+    tacticalEquipment: [
+      'helmets',
+      'tactical_knee_pads',
+      'bulletproof_vests',
+      'tactical_glasses',
+      'tactical_headphones',
+      'night_vision_googles',
+      'thermal_imagers',
+      'tactical_pearls',
+      'accessories_to_weapons',
+      'hydrators',
+      'reset_bags',
+      'unloading_vests',
+      'strikeball_grenades',
+    ],
+    medical: [
+      'turnstiles',
+      'tablets',
+      'gas_masks',
+      'paramedic_chest_seals',
+      'hydrators',
+      'projectors',
+      'warmers',
+      'tactical_clothing',
+      'backpacks',
+      'panama',
+      'caps',
+      'first_aid_kits',
+      'batteries_for_walkie_talkies',
+      'accessories_for_laptops',
+    ],
+    field: [
+      'cars',
+      'chargers_for_machines',
+      'mask_tapes',
+      'gas_cylinders',
+      'flipcharts',
+      'inflatable_carmat',
+      'binoculars',
+      'heaters',
+      'transmission_oil',
+      'generators',
+    ],
+  };
 
-  const items = Array.from(reportData);
-
-  useEffect(() => {
-    if (items.length) {
-      setIsLoading(false);
-    }
-  }, [items]);
-
-  const indexOfLastPost = currentColumn * itemsPerColumn;
-  const indexOfFirstPost = indexOfLastPost - itemsPerColumn;
-  const currentItems = items.slice(indexOfFirstPost, indexOfLastPost);
-  const isLastPage =
-    currentItems.length !== itemsPerColumn || indexOfLastPost === items.length;
-  const handleBack = () => setCurrentColumn(currentColumn - 1);
-  const handleNext = () => setCurrentColumn(currentColumn + 1);
   return (
     <Box sx={classes.wrapper}>
-      {isLoading ? (
-        <Loading />
-      ) : (
-        <>
-          <Box sx={classes.titleWrapper}>
-            <Typography variant='h3' sx={classes.title}>
-              {t('reporting.title')}
-            </Typography>
+      <Box sx={classes.titleWrapper}>
+        <Typography variant='h3' sx={classes.title}>
+          {t('reporting.title')}
+        </Typography>
+      </Box>
+      <Box sx={classes.subTitleWrapper}>
+        <Typography variant='h5' sx={classes.subTitle}>
+          {t('reporting.subTitle')}
+        </Typography>
+      </Box>
+      <Box sx={classes.positionsWrapper}>
+        {Object.keys(reportData).map((key) => (
+          <Box sx={classes.position} key={key}>
+            <p style={classes.positionTitle}>{t(`reporting.${key}`)}:</p>
+            <p style={classes.positionItems}>
+              {reportData[key].map((item) => t(`reporting.${item}`)).join(', ')}
+            </p>
           </Box>
-          <Box sx={classes.subTitleWrapper}>
-            <Typography variant='h5' sx={classes.subTitle}>
-              {t('reporting.subTitle')}
-            </Typography>
-          </Box>
-          {width > 1024 && (
-            <Box sx={classes.itemsWrapper}>
-              {items.map((item) => (
-                <Typography variant='h6' sx={classes.item} key={item.name}>
-                  {t(`reporting.${item.name.replace(' ', '')}`)}
-                </Typography>
-              ))}
-            </Box>
-          )}
-          {width <= 1024 && (
-            <Box sx={classes.content}>
-              <Box sx={classes.iconWrapper}>
-                {currentColumn !== 1 && (
-                  <ArrowCircleLeftIcon onClick={handleBack} />
-                )}
-              </Box>
-              <Box sx={classes.itemsWrapper}>
-                {currentItems.map((item) => (
-                  <Typography variant='h6' sx={classes.item} key={item.name}>
-                    {t(`reporting.${item.name.replace(' ', '')}`)}
-                  </Typography>
-                ))}
-              </Box>
-              <Box sx={classes.iconWrapper}>
-                {!isLastPage && <ArrowCircleRightIcon onClick={handleNext} />}
-              </Box>
-            </Box>
-          )}
-        </>
-      )}
+        ))}
+      </Box>
     </Box>
   );
 };

@@ -169,7 +169,7 @@ export const aboutStyles = () => {
     },
     title: {
       fontSize: '48px',
-      fontWeight: 600,
+      fontWeight: 700,
       padding: '15px 5px 0px 5px',
       textAlign: 'center',
       [theme.breakpoints.down('sm')]: {
@@ -246,20 +246,17 @@ export const aboutStyles = () => {
 export const reportStyles = () => {
   return {
     wrapper: {
-      backgroundImage:
-        'url(https://i.im.ge/2023/03/11/74ghjh.reportBackground.jpg)',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
       height: '100%',
       minHeight: '100vh',
-      padding: '2%',
+      padding: '64px 32px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '32px',
     },
     title: {
       fontWeight: 600,
-      color: theme.palette.primary.light,
       width: 'fit-content',
-      padding: '0.5%',
+      fontSize: '48px',
       [theme.breakpoints.down('lg')]: {
         fontSize: '36px',
         paddingTop: '10px',
@@ -270,62 +267,33 @@ export const reportStyles = () => {
       justifyContent: 'center',
     },
     subTitle: {
-      fontWeight: 600,
-      color: theme.palette.primary.main,
-      width: 'object-fit',
-      padding: '0 10px',
-      [theme.breakpoints.down('lg')]: {
-        fontSize: '18px',
-        display: 'block',
-        padding: 0,
-        whiteSpace: 'normal',
-        textAlign: 'center',
-      },
-      [theme.breakpoints.down('lg')]: {
-        display: 'block',
-        padding: 0,
-        whiteSpace: 'normal',
-        textAlign: 'center',
-      },
+      fontSize: '24px',
     },
     subTitleWrapper: {
       display: 'flex',
       justifyContent: 'center',
       whiteSpace: 'nowrap',
-      marginTop: '5%',
     },
-    itemsWrapper: {
+    positionsWrapper: {
       display: 'flex',
       flexDirection: 'column',
-      flexWrap: 'wrap',
-      maxHeight: '300px',
-      marginTop: '5%',
-      alignItems: 'center',
-      [theme.breakpoints.down('lg')]: {
-        textAlign: 'center',
-        maxHeight: 'initial',
-        flexWrap: 'initital',
-        justifyContent: 'center',
-        alignItems: 'center',
-      },
+      gap: '32px',
     },
-    item: {
-      color: theme.palette.primary.light,
-      fontWeight: 600,
-      [theme.breakpoints.down('lg')]: {
-        fontSize: '19px',
-      },
-    },
-    content: {
+    position: {
+      padding: '32px',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      flexDirection: 'column',
+      gap: '16px',
+      background: theme.palette.primary.main,
     },
-    iconWrapper: {
-      width: '24px',
-      '& svg': {
-        fill: theme.palette.primary.light,
-      },
+    positionTitle: {
+      fontSize: '18px',
+      fontWeight: 500,
+      margin: 0,
+    },
+    positionItems: {
+      margin: 0,
+      fontSize: '16px',
     },
   };
 };
