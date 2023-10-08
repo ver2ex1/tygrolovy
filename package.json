@@ -31,6 +31,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-hook-form": "^7.43.5",
     "react-i18next": "^12.2.0",
+    "react-multi-carousel": "^2.8.4",
     "react-scroll": "^1.8.9",
     "react-simple-typewriter": "^5.0.1",
     "react-toastify": "^9.1.1",

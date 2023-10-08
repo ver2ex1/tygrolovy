@@ -24,26 +24,6 @@ const ContactsPage = dynamic(() => import('@/components/Contacts'), {
 });
 
 const Landing = ({reportImages}) => {
-  const [scrollTop, setScrollTop] = useState(0);
-  const onScroll = () => {
-    const winScroll = document.documentElement.scrollTop;
-    const height =
-      document.documentElement.scrollHeight -
-      document.documentElement.clientHeight;
-
-    const scrolled = (winScroll / height) * 100;
-    setScrollTop(scrolled);
-  };
-
-  useEffect(() => {
-    window.addEventListener('scroll', onScroll);
-
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
-
-  const handleScrollToTop = () =>
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    console.log(reportImages)
   return (
     <Suspense fallback={<Loading />}>
       <Header />
@@ -54,7 +34,7 @@ const Landing = ({reportImages}) => {
         <AboutPage />
       </Layout>
       <Layout href='report'>
-        <ReportPage />
+        <ReportPage reportImages={reportImages}/>
       </Layout>
       <Layout href='donate'>
         <DonatePage />

@@ -1,8 +1,9 @@
 import { reportStyles } from './common/styles';
 import { Typography, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
+import CustomCarousel from './common/CustomCarousel';
 
-const Report = () => {
+const Report = ({reportImages}) => {
   const classes = reportStyles();
   const { t } = useTranslation();
 
@@ -76,6 +77,7 @@ const Report = () => {
           </Box>
         ))}
       </Box>
+      <CustomCarousel images={reportImages}/>
     </Box>
   );
 };
