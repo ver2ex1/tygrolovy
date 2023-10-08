@@ -77,7 +77,12 @@ const Report = ({ reportImages }) => {
           </Box>
         ))}
       </Box>
-      <CustomCarousel images={reportImages} />
+      <Box>
+        <Typography sx={classes.imageTitle}>
+          Фото-звіти від захисників:
+        </Typography>
+        <CustomCarousel images={reportImages} />
+      </Box>
     </Box>
   );
 };

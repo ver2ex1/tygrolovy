@@ -310,6 +310,12 @@ export const reportStyles = () => {
         fontSize: '14px',
       },
     },
+    imageTitle: {
+      marginBottom: '16px',
+      textAlign: 'center',
+      fontSize: '24px',
+      fontWeight: 700,
+    },
   };
 };
 
@@ -665,5 +671,24 @@ export const useHeadBlockStyles = () => {
       fontSize: '18px',
       width: '332px',
     },
+  };
+};
+
+export const useCustomCarouselStyles = () => {
+  return {
+    customDot: {
+      margin: '0 8px',
+      cursor: 'pointer',
+      width: '28px',
+      height: '7px',
+      [theme.breakpoints.down('sm')]: {
+        margin: '0 4px',
+      },
+    },
+    wrapper: {
+      paddingBottom: '16px',
+      position: 'relative',
+    },
+    imagesWrapper: { display: 'flex', gap: '10px' },
   };
 };

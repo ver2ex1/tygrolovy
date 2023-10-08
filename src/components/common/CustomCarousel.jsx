@@ -2,15 +2,18 @@ import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import useWindowSize from '@/utils/useWindowSize';
+import { Box, Typography } from '@mui/material';
+import { useCustomCarouselStyles } from './styles';
 
 const CustomCarousel = ({ images }) => {
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const carouselRef = useRef(null);
-
+  const classes = useCustomCarouselStyles();
+  const { width } = useWindowSize();
   const groupImages = images => {
+    const itemsPerGroup = width < 660 ? 1 : 4;
     const grouped = [];
-    for (let i = 0; i < images.length; i += 4) {
-      grouped.push(images.slice(i, i + 4));
+    for (let i = 0; i < images.length; i += itemsPerGroup) {
+      grouped.push(images.slice(i, i + itemsPerGroup));
     }
     return grouped;
   };
@@ -38,47 +41,47 @@ const CustomCarousel = ({ images }) => {
 
   const CustomDot = ({ index, onClick, active }) => {
     return (
-      <span
+      <Typography
         style={{
-          width: '10px',
-          height: '10px',
-          borderRadius: '50%',
-          background: active ? 'blue' : 'gray',
-          margin: '0 5px',
-          cursor: 'pointer',
-          top: '10',
+          background: active ? '#2B3826' : '#C7D3C5',
         }}
+        sx={classes.customDot}
         onClick={() => onClick()}
-      ></span>
+      ></Typography>
     );
   };
 
   return (
-    <Carousel
-      responsive={responsive}
-      infinite={true}
-      autoPlay={true}
-      autoPlaySpeed={3000}
-      afterChange={index => setCurrentSlide(index)}
-      arrows={false}
-      showDots
-      customDot={<CustomDot />}
-    >
-      {groupedImages.map((group, groupIndex) => (
-        <div key={groupIndex} style={{ display: 'flex', gap: '10px' }}>
-          {group.map((imageSrc, index) => (
-            <Image
-              src={imageSrc}
-              alt={`Slide ${groupIndex * 4 + index + 1}`}
-              width={333}
-              height={215}
-              key={index}
-              style={{ objectFit: 'cover', width: '25%' }}
-            />
-          ))}
-        </div>
-      ))}
-    </Carousel>
+    <Box sx={classes.wrapper}>
+      <Carousel
+        responsive={responsive}
+        infinite={true}
+        autoPlay={true}
+        autoPlaySpeed={3000}
+        arrows={false}
+        showDots
+        customDot={<CustomDot />}
+        renderDotsOutside
+      >
+        {groupedImages.map((group, groupIndex) => (
+          <Box sx={classes.imagesWrapper} key={groupIndex}>
+            {group.map((imageSrc, index) => (
+              <Image
+                src={imageSrc}
+                alt={`Slide ${groupIndex * 4 + index + 1}`}
+                width={333}
+                height={215}
+                key={index}
+                style={{
+                  objectFit: 'cover',
+                  width: width < 660 ? '100%' : '25%',
+                }}
+              />
+            ))}
+          </Box>
+        ))}
+      </Carousel>
+    </Box>
   );
 };
 
