@@ -22,9 +22,7 @@ const links = [
 const Header = () => {
   const classes = headerStyles();
   const router = useRouter();
-  const [activeLng, setActiveLng] = useState(
-    typeof window !== 'undefined' && localStorage.getItem('i18nextLng'),
-  );
+  const [activeLng, setActiveLng] = useState(router.locale || 'ua');
   const { t, i18n } = useTranslation();
   const [isOpen, setOpen] = useState(false);
   const [isOpenMobileLangDropDown, setIsOpenMobileLangDropDown] =
@@ -59,7 +57,7 @@ const Header = () => {
         query: router.query,
       },
       router.asPath,
-      { locale: value },
+      { locale: value }
     );
     closeSideBar();
     handleToggleMobileLangDropDown();
