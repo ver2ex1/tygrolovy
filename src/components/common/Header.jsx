@@ -23,7 +23,7 @@ const Header = () => {
   const classes = headerStyles();
   const router = useRouter();
   const [activeLng, setActiveLng] = useState(
-    typeof window !== 'undefined' && localStorage.getItem('i18nextLng')
+    typeof window !== 'undefined' && localStorage.getItem('i18nextLng'),
   );
   const { t, i18n } = useTranslation();
   const [isOpen, setOpen] = useState(false);
@@ -31,7 +31,7 @@ const Header = () => {
     useState(false);
 
   const handleToggleMobileLangDropDown = () =>
-    setIsOpenMobileLangDropDown((prevState) => !prevState);
+    setIsOpenMobileLangDropDown(prevState => !prevState);
 
   const handleSideBar = () => {
     setOpen(!isOpen);
@@ -39,7 +39,7 @@ const Header = () => {
 
   const [anchorEl, setAnchorEl] = useState(null);
 
-  const handleOpenMenu = (event) => {
+  const handleOpenMenu = event => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -59,7 +59,7 @@ const Header = () => {
         query: router.query,
       },
       router.asPath,
-      { locale: value }
+      { locale: value },
     );
     closeSideBar();
     handleToggleMobileLangDropDown();
@@ -67,7 +67,7 @@ const Header = () => {
   const { width } = useWindowSize();
   return (
     <Box sx={classes.wrapper}>
-      <AnchorLink to='/'>
+      <AnchorLink to="/">
         <Logo sx={classes.logo} />
       </AnchorLink>
       {width >= 660 && (
@@ -83,14 +83,14 @@ const Header = () => {
       )}
       {width >= 660 && (
         <Box sx={classes.actions}>
-          <AnchorLink to='donate' style={classes.donate}>
+          <AnchorLink to="donate" style={classes.donate}>
             {t('donate.title')}
           </AnchorLink>
           <Box
             sx={classes.langDropDown}
             onClick={handleOpenMenu}
-            aria-controls='language-menu'
-            aria-haspopup='true'
+            aria-controls="language-menu"
+            aria-haspopup="true"
           >
             {activeLng === 'ua' ? <UkraineFlag /> : <UKFlag />}
             <ArrowDown
@@ -101,7 +101,7 @@ const Header = () => {
             />
           </Box>
           <MUIMenu
-            id='language-menu'
+            id="language-menu"
             anchorEl={anchorEl}
             keepMounted
             open={Boolean(anchorEl)}
@@ -132,7 +132,7 @@ const Header = () => {
       )}
       {width < 660 && (
         <Box sx={classes.actions}>
-          <AnchorLink to='donate' style={classes.donate}>
+          <AnchorLink to="donate" style={classes.donate}>
             {t('donate.title')}
           </AnchorLink>
           <Box sx={{ position: 'relative' }}>
@@ -145,16 +145,16 @@ const Header = () => {
               onClose={handleSideBar}
               customBurgerIcon={
                 <Image
-                  src='/assets/burgerButton.svg'
-                  alt='burgerButton'
+                  src="/assets/burgerButton.svg"
+                  alt="burgerButton"
                   width={24}
                   height={24}
                 />
               }
               customCrossIcon={
                 <Image
-                  src='/assets/crossIcon.svg'
-                  alt='burgerButton'
+                  src="/assets/crossIcon.svg"
+                  alt="burgerButton"
                   width={24}
                   height={24}
                 />
@@ -233,7 +233,7 @@ const Header = () => {
                   </span>
                 )}
                 <Link
-                  href='#donate'
+                  href="#donate"
                   style={classes.mobileDonate}
                   onClick={closeSideBar}
                 >

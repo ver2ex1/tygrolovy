@@ -23,23 +23,23 @@ const ContactsPage = dynamic(() => import('@/components/Contacts'), {
   suspense: true,
 });
 
-const Landing = ({reportImages}) => {
+const Landing = ({ reportImages }) => {
   return (
     <Suspense fallback={<Loading />}>
       <Header />
       <Layout>
         <HeadPage />
       </Layout>
-      <Layout href='about'>
+      <Layout href="about">
         <AboutPage />
       </Layout>
-      <Layout href='report'>
-        <ReportPage reportImages={reportImages}/>
+      <Layout href="report">
+        <ReportPage reportImages={reportImages} />
       </Layout>
-      <Layout href='donate'>
+      <Layout href="donate">
         <DonatePage />
       </Layout>
-      <Layout href='contacts'>
+      <Layout href="contacts">
         <ContactsPage />
       </Layout>
       <Footer />

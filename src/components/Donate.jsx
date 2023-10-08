@@ -30,29 +30,29 @@ const Donate = () => {
             {t('donate.liqpayPayment')}
           </Typography>
           <Image
-            src='/assets/liqpayQR.png'
-            alt='liqpay QR'
+            src="/assets/liqpayQR.png"
+            alt="liqpay QR"
             width={197}
             height={197}
           />
           <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
+            method="POST"
+            action="https://www.liqpay.ua/api/3/checkout"
+            acceptCharset="utf-8"
           >
             <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVQUgiLCJ2ZXJzaW9uIjozfQ=='
+              type="hidden"
+              name="data"
+              value="eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVQUgiLCJ2ZXJzaW9uIjozfQ=="
             />
             <input
-              type='hidden'
-              name='signature'
-              value='+upisot7bQFSZufD8cSQQOu1tX8='
+              type="hidden"
+              name="signature"
+              value="+upisot7bQFSZufD8cSQQOu1tX8="
             />
             <Button
-              variant='contained'
-              type='submit'
+              variant="contained"
+              type="submit"
               sx={classes.donateButton}
               disableRipple
             >
@@ -64,10 +64,10 @@ const Donate = () => {
           <Typography sx={classes.blockTitle}>
             {t('donate.charityBank')}
           </Typography>
-          <Link href='https://send.monobank.ua/jar/3TEdr9Qf5u' target='_blank'>
+          <Link href="https://send.monobank.ua/jar/3TEdr9Qf5u" target="_blank">
             <Image
-              src='/assets/charityBank.png'
-              alt='Charity Bank'
+              src="/assets/charityBank.png"
+              alt="Charity Bank"
               width={227}
               height={227}
             />

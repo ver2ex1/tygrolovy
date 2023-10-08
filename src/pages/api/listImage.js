@@ -7,7 +7,7 @@ export function getImageReportsPaths() {
     process.cwd(),
     'public',
     'assets',
-    'reports'
+    'reports',
   );
   let files;
   try {
@@ -16,8 +16,8 @@ export function getImageReportsPaths() {
     console.error('Failed to read the directory:', err);
     return [];
   }
-  const imageFiles = files.filter((file) =>
-    ['.jpg', '.jpeg', '.png', '.PNG', '.JPG'].includes(path.extname(file))
+  const imageFiles = files.filter(file =>
+    ['.jpg', '.jpeg', '.png', '.PNG', '.JPG'].includes(path.extname(file)),
   );
-  return imageFiles.map((file) => `/assets/reports/${file}`);
+  return imageFiles.map(file => `/assets/reports/${file}`);
 }

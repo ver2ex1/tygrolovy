@@ -3,7 +3,7 @@ import { Typography, Box } from '@mui/material';
 import { useTranslation } from 'next-i18next';
 import CustomCarousel from './common/CustomCarousel';
 
-const Report = ({reportImages}) => {
+const Report = ({ reportImages }) => {
   const classes = reportStyles();
   const { t } = useTranslation();
 
@@ -56,28 +56,28 @@ const Report = ({reportImages}) => {
   return (
     <Box sx={classes.wrapper}>
       <Box sx={classes.titleWrapper}>
-        <Typography variant='h3' sx={classes.title}>
+        <Typography variant="h3" sx={classes.title}>
           {t('reporting.title')}
         </Typography>
       </Box>
       <Box sx={classes.subTitleWrapper}>
-        <Typography variant='h5' sx={classes.subTitle}>
+        <Typography variant="h5" sx={classes.subTitle}>
           {t('reporting.subTitle')}
         </Typography>
       </Box>
       <Box sx={classes.positionsWrapper}>
-        {Object.keys(reportData).map((key) => (
+        {Object.keys(reportData).map(key => (
           <Box sx={classes.position} key={key}>
             <Typography sx={classes.positionTitle}>
               {t(`reporting.${key}`)}:
             </Typography>
             <Typography sx={classes.positionItems}>
-              {reportData[key].map((item) => t(`reporting.${item}`)).join(', ')}
+              {reportData[key].map(item => t(`reporting.${item}`)).join(', ')}
             </Typography>
           </Box>
         ))}
       </Box>
-      <CustomCarousel images={reportImages}/>
+      <CustomCarousel images={reportImages} />
     </Box>
   );
 };

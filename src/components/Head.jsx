@@ -11,17 +11,17 @@ const Head = () => {
     <Box sx={classes.root}>
       <Box sx={classes.imageWrapper}>
         <Image
-          alt='Head Image'
-          src='/assets/headText.svg'
+          alt="Head Image"
+          src="/assets/headText.svg"
           width={853}
           height={333}
         />
       </Box>
       <Box sx={classes.buttonsWrapper}>
-        <AnchorLink to='donate' style={classes.donate}>
+        <AnchorLink to="donate" style={classes.donate}>
           {t('donate.title')}
         </AnchorLink>
-        <AnchorLink to='contacts' style={classes.request}>
+        <AnchorLink to="contacts" style={classes.request}>
           {t('contacts.request')}
         </AnchorLink>
       </Box>

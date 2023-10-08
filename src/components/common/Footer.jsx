@@ -12,19 +12,19 @@ const Footer = () => {
       <Logo />
       <Box sx={classes.links}>
         <Link
-          href='https://www.docdroid.net/W8wf2HA/publicna-oferta-pdf'
-          variant='body2'
-          target='_blank'
+          href="https://www.docdroid.net/W8wf2HA/publicna-oferta-pdf"
+          variant="body2"
+          target="_blank"
         >
           <Typography sx={classes.pdfLink}>
             {t('footer.publicOffer')}
           </Typography>
         </Link>
         <Link
-          href='https://docdro.id/SwCSU86'
-          variant='body2'
+          href="https://docdro.id/SwCSU86"
+          variant="body2"
           sx={classes.pdfLink}
-          target='_blank'
+          target="_blank"
         >
           <Typography sx={classes.pdfLink}>
             {t('footer.privacyPolicy')}
@@ -32,8 +32,8 @@ const Footer = () => {
         </Link>
       </Box>
       <Link
-        href='https://www.linkedin.com/in/yarema-kertytsky/'
-        target='_blank'
+        href="https://www.linkedin.com/in/yarema-kertytsky/"
+        target="_blank"
       >
         <Typography sx={classes.pdfLink}>© 2023, Yarema Kertytsky</Typography>
       </Link>

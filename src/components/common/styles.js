@@ -402,7 +402,7 @@ export const donateStyles = () => {
   };
 };
 
-export const contactsStyle = (width) => {
+export const contactsStyle = width => {
   return {
     wrapper: {
       display: 'flex',
