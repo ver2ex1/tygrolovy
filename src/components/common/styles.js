@@ -602,6 +602,7 @@ export const useHeadBlockStyles = () => {
       },
     },
     imageWrapper: {
+      padding: '0px 12px',
       '& img': {
         [theme.breakpoints.down('md')]: {
           maxWidth: '700px',
