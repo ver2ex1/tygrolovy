@@ -608,10 +608,10 @@ export const useHeadBlockStyles = () => {
           maxWidth: '700px',
         },
         [theme.breakpoints.down('sm')]: {
-          maxWidth: '400px',
+          maxWidth: '375px',
         },
         [theme.breakpoints.down(376)]: {
-          maxWidth: '320px',
+          maxWidth: '310px',
         },
         [theme.breakpoints.down(321)]: {
           maxWidth: '300px',
