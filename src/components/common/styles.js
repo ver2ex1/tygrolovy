@@ -17,8 +17,7 @@ export const headerStyles = () => {
   return {
     wrapper: {
       background: theme.palette.primary.main,
-      padding: '20px',
-      boxShadow: '0 3px 5px rgba(57, 63, 72, 0.3)',
+      padding: '16px 40px',
       color: theme.palette.primary.light,
       '& p': {
         fontWeight: 600,
@@ -27,12 +26,10 @@ export const headerStyles = () => {
       alignItems: 'center',
       justifyContent: 'space-between',
       [theme.breakpoints.down('sm')]: {
-        padding: '20px 5px',
-        justifyContent: 'initial',
+        padding: '8px 16px',
       },
     },
     logo: {
-      paddingBottom: '10px',
       [theme.breakpoints.down('md')]: {
         width: '130px',
       },
@@ -45,7 +42,7 @@ export const headerStyles = () => {
     },
     links: {
       display: 'flex',
-      gap: '5px',
+      gap: '18px',
       [theme.breakpoints.down('sm')]: {
         display: 'flex !important',
         flexDirection: 'column !important',
@@ -56,35 +53,71 @@ export const headerStyles = () => {
       marginLeft: 'auto',
       marginRight: '70px',
     },
-    divider: {
-      height: '16px',
-      borderLeft: `1px solid ${theme.palette.primary.light}`,
-    },
     link: {
       display: 'flex',
       gap: '5px',
       alignItems: 'center',
       '& a': {
         cursor: 'pointer',
-        color: theme.palette.primary.light,
-        fontWeight: 600,
-        backgroundImage: `linear-gradient(to right,${theme.palette.primary.dark},${theme.palette.primary.dark} 50%,${theme.palette.primary.light} 50%)`,
-        backgroundSize: '200% 100%',
-        backgroundPosition: '-100%',
-        WebkitBackgroundClip: 'text',
-        ' -webkit-text-fill-color': 'transparent',
-        transition: 'all 0.3s ease-in-out',
+        color: theme.palette.primary.dark,
+        transition: 'color 0.3s ease-in-out',
         padding: '2px',
         textDecoration: 'none',
+        fontSize: '18px',
         '&:hover': {
-          backgroundPosition: 0,
+          color: theme.palette.primary.light,
         },
       },
+    },
+    actions: {
+      display: 'flex',
+      alignItems: 'center',
+      gap: '48px',
+      [theme.breakpoints.down('md')]: {
+        gap: '24px',
+      },
+    },
+    langDropDown: {
+      display: 'flex',
+      gap: '8px',
+      alignItems: 'center',
+      cursor: 'pointer',
+      [theme.breakpoints.down('sm')]: {
+        width: 'fit-content',
+      },
+    },
+    langDropDownContent: {
+      '& .MuiPaper-root': {
+        background: 'rgba(43, 56, 38, 0.90)',
+      },
+    },
+    langDropDownItem: {
+      color: theme.palette.primary.light,
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+    },
+    arrowDown: {
+      color: theme.palette.secondary.main,
+      transition: 'opacity 0.3s ease',
+      [theme.breakpoints.down('sm')]: {
+        color: theme.palette.primary.light,
+      },
+    },
+    arrowUp: {
+      color: theme.palette.primary.light,
+      transform: 'rotate(180deg)',
+    },
+    mobileDropDownTitle: {
+      display: 'flex',
+      gap: '10px',
+      alignItems: 'center',
+      fontWeight: 400,
+      fontSize: '18px',
     },
     mobileLink: {
       '& a': {
         color: theme.palette.primary.light,
-        fontWeight: 600,
         textDecoration: 'none',
       },
     },
@@ -93,24 +126,20 @@ export const headerStyles = () => {
       alignItems: 'center',
       textDecoration: 'none',
       color: theme.palette.primary.light,
-      fontWeight: 600,
-      background: theme.palette.primary.dark,
-      padding: '10px 15px',
-      borderRadius: '8px',
+      background: theme.palette.secondary.main,
+      padding: '8px',
       fontSize: 16,
-      margin: '0px 5px',
       cursor: 'pointer',
+      fontSize: '18px',
     },
     mobileDonate: {
       display: 'flex',
       alignItems: 'center',
       textDecoration: 'none',
-      color: theme.palette.primary.dark,
-      fontWeight: 600,
-      background: theme.palette.primary.main,
-      padding: '10px 15px',
-      borderRadius: '8px',
-      fontSize: 18,
+      color: theme.palette.secondary.main,
+      background: theme.palette.primary.light,
+      padding: '8px',
+      fontSize: 16,
       width: 'fit-content',
     },
   };
@@ -120,21 +149,30 @@ export const aboutStyles = () => {
   return {
     wrapper: {
       display: 'flex',
-      padding: '3%',
+      padding: '128px 0',
       flexDirection: 'column',
-      gap: '30px',
+      gap: '32px',
       alignItems: 'center',
+      background: theme.palette.primary.main,
+      height: '100vh',
+      [theme.breakpoints.down('lg')]: {
+        padding: '25px 0',
+      },
       [theme.breakpoints.down('sm')]: {
-        gap: '20px',
+        gap: '16px',
+        padding: '32px 16px',
+      },
+      [theme.breakpoints.down(321)]: {
+        padding: '12px',
       },
     },
     title: {
       fontSize: '48px',
-      fontWeight: 600,
+      fontWeight: 700,
       padding: '15px 5px 0px 5px',
       textAlign: 'center',
       [theme.breakpoints.down('sm')]: {
-        fontSize: '32px',
+        fontSize: '24px',
       },
     },
     textWrapper: {
@@ -156,10 +194,50 @@ export const aboutStyles = () => {
       },
     },
     textBold: {
-      fontWeight: 800,
-      fontSize: '18px',
-      fontStyle: 'normal',
-      color: theme.palette.primary.dark,
+      fontSize: '24px',
+      '& span': {
+        display: 'inline-block',
+        position: 'relative',
+        zIndex: '1',
+        textDecoration: 'underline',
+        textDecorationColor: '#77ADF5',
+        textDecorationThickness: '3px',
+      },
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '20px',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '18px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+      [theme.breakpoints.down(376)]: {
+        fontSize: '14px',
+      },
+    },
+    textBoldYellow: {
+      fontSize: '24px',
+      '& span': {
+        display: 'inline-block',
+        position: 'relative',
+        zIndex: '1',
+        textDecoration: 'underline',
+        textDecorationColor: '#F5E14D',
+        textDecorationThickness: '3px',
+      },
+      [theme.breakpoints.down('lg')]: {
+        fontSize: '20px',
+      },
+      [theme.breakpoints.down('md')]: {
+        fontSize: '18px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
+      },
+      [theme.breakpoints.down(376)]: {
+        fontSize: '14px',
+      },
     },
   };
 };
@@ -167,20 +245,21 @@ export const aboutStyles = () => {
 export const reportStyles = () => {
   return {
     wrapper: {
-      backgroundImage:
-        'url(https://i.im.ge/2023/03/11/74ghjh.reportBackground.jpg)',
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
       height: '100%',
       minHeight: '100vh',
-      padding: '2%',
+      padding: '64px 32px',
+      display: 'flex',
+      flexDirection: 'column',
+      gap: '32px',
+      [theme.breakpoints.down('sm')]: {
+        gap: '16px',
+        padding: '32px 8px',
+      },
     },
     title: {
       fontWeight: 600,
-      color: theme.palette.primary.light,
       width: 'fit-content',
-      padding: '0.5%',
+      fontSize: '48px',
       [theme.breakpoints.down('lg')]: {
         fontSize: '36px',
         paddingTop: '10px',
@@ -191,62 +270,51 @@ export const reportStyles = () => {
       justifyContent: 'center',
     },
     subTitle: {
-      fontWeight: 600,
-      color: theme.palette.primary.main,
-      width: 'object-fit',
-      padding: '0 10px',
-      [theme.breakpoints.down('lg')]: {
-        fontSize: '18px',
-        display: 'block',
-        padding: 0,
-        whiteSpace: 'normal',
-        textAlign: 'center',
-      },
-      [theme.breakpoints.down('lg')]: {
-        display: 'block',
-        padding: 0,
-        whiteSpace: 'normal',
+      fontSize: '24px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
         textAlign: 'center',
       },
     },
     subTitleWrapper: {
       display: 'flex',
       justifyContent: 'center',
-      whiteSpace: 'nowrap',
-      marginTop: '5%',
     },
-    itemsWrapper: {
+    positionsWrapper: {
       display: 'flex',
       flexDirection: 'column',
-      flexWrap: 'wrap',
-      maxHeight: '300px',
-      marginTop: '5%',
-      alignItems: 'center',
-      [theme.breakpoints.down('lg')]: {
-        textAlign: 'center',
-        maxHeight: 'initial',
-        flexWrap: 'initital',
-        justifyContent: 'center',
-        alignItems: 'center',
+      gap: '32px',
+      [theme.breakpoints.down('sm')]: {
+        gap: '16px',
       },
     },
-    item: {
-      color: theme.palette.primary.light,
-      fontWeight: 600,
-      [theme.breakpoints.down('lg')]: {
-        fontSize: '19px',
-      },
-    },
-    content: {
+    position: {
+      padding: '32px',
       display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
+      flexDirection: 'column',
+      gap: '16px',
+      background: theme.palette.primary.main,
     },
-    iconWrapper: {
-      width: '24px',
-      '& svg': {
-        fill: theme.palette.primary.light,
+    positionTitle: {
+      fontSize: '18px',
+      fontWeight: 500,
+      margin: 0,
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '16px',
       },
+    },
+    positionItems: {
+      margin: 0,
+      fontSize: '16px',
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '14px',
+      },
+    },
+    imageTitle: {
+      marginBottom: '16px',
+      textAlign: 'center',
+      fontSize: '24px',
+      fontWeight: 700,
     },
   };
 };
@@ -255,128 +323,99 @@ export const donateStyles = () => {
   return {
     wrapper: {
       display: 'flex',
-      padding: '3%',
+      padding: '128px 64px',
       flexDirection: 'column',
-      gap: '30px',
       alignItems: 'center',
       height: '100vh',
-      background: '#F5F5F5',
+      [theme.breakpoints.down('md')]: {
+        padding: '32px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        padding: '32px 16px',
+      },
     },
     title: {
-      fontWeight: 600,
-      width: 'fit-content',
-      padding: '0.5%',
-      [theme.breakpoints.down('sm')]: {
+      fontSize: '48px',
+      fontWeight: 700,
+      textAlign: 'center',
+      marginBottom: '64px',
+      [theme.breakpoints.down('md')]: {
+        marginBottom: '16px',
         fontSize: '32px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        fontSize: '24px',
       },
     },
     content: {
       display: 'flex',
+      gap: '10px',
       width: '100%',
-      rowGap: '10px',
-      [theme.breakpoints.down('sm')]: {
+      [theme.breakpoints.down('md')]: {
         flexDirection: 'column',
-        gap: 4,
       },
     },
-    donateColumn: {
+    block: {
+      padding: '35px 0px',
+      width: '50%',
       display: 'flex',
       flexDirection: 'column',
-      width: '50%',
-      paddingTop: '5%',
-      gap: 5,
       alignItems: 'center',
-      width: '50%',
-      '& button': {
-        color: theme.palette.primary.light,
-        fontWeight: 600,
-        padding: '3% 3%',
-        fontSize: '18px',
-        borderRadius: '50px',
-        width: '100%',
-      },
-      '& form': {
-        width: '100%',
-      },
+      gap: '32px',
+      background: theme.palette.primary.main,
       [theme.breakpoints.down('md')]: {
         width: '100%',
-        gap: 4,
-        paddingTop: '5%',
-        '& h4': {
-          fontSize: '24px',
+        padding: '12px 0px',
+        '& img': {
+          height: '120px',
+          width: '120px',
         },
       },
     },
-    requisitesColumn: {
-      paddingTop: '5%',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      width: '50%',
-      '& h4': {
-        marginBottom: '45px',
-      },
+    blockTitle: {
+      fontSize: '24px',
+      fontWeight: 700,
       [theme.breakpoints.down('sm')]: {
-        width: '100%',
-        '& h4': {
-          fontSize: '24px',
-          marginBottom: '20px',
-        },
+        fontSize: '18px',
       },
     },
-    requisitesContent: {
-      display: 'flex',
-      flexDirection: 'column',
-      gap: 7,
+    donateButton: {
+      background: theme.palette.secondary.main,
+      boxShadow: 'none',
+      borderRadius: '0px',
+      color: theme.palette.primary.light,
+      textTransform: 'none',
+      fontSize: '24px',
+      padding: '8px 0px',
+      fontWeight: 400,
+      width: '400px',
       [theme.breakpoints.down('md')]: {
-        gap: 5,
+        width: '300px',
       },
-    },
-    requisitesCopy: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    requisitesSymbol: {
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      width: '40px',
-      height: '56px',
-      background: theme.palette.primary.dark,
-      color: theme.palette.primary.light,
-      borderRadius: '10px 0px 0px 10px',
-      fontWeight: 600,
-    },
-    requisitesInput: {
-      '&.MuiTextField-root': {
-        '& div': {
-          borderRadius: '0px',
-          background: theme.palette.primary.main,
-        },
+      [theme.breakpoints.down('md')]: {
+        width: '250px',
       },
+      height: '47px',
     },
-    requisitesCopyButton: {
-      background: theme.palette.primary.dark,
-      color: theme.palette.primary.light,
-      borderRadius: '0px 10px 10px 0px',
-      width: '40px',
-      height: '56px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      cursor: 'pointer',
+    bankInstruction: {
+      fontSize: '16px',
+      color: theme.palette.secondary.main,
+      textAlign: 'center',
+      [theme.breakpoints.down(321)]: {
+        fontSize: '12px',
+      },
     },
   };
 };
 
-export const contactsStyle = (width) => {
+export const contactsStyle = width => {
   return {
     wrapper: {
       display: 'flex',
-      padding: '20px',
+      padding: '128px 0px',
       flexDirection: 'column',
-      gap: '30px',
+      gap: '64px',
+      alignItems: 'center',
       [theme.breakpoints.down('sm')]: {
         padding: '5px',
         gap: '10px',
@@ -385,63 +424,60 @@ export const contactsStyle = (width) => {
     title: {
       fontSize: '48px',
       fontWeight: 600,
-      color: theme.palette.primary.dark,
-      textStroke: '1px #fff',
       [theme.breakpoints.down('sm')]: {
         fontSize: '32px',
       },
     },
     content: {
       display: 'flex',
-      justifyContent: 'space-between',
-      gap: '50px',
-      [theme.breakpoints.down('sm')]: {
-        flexDirection: 'column',
-      },
+      gap: '25px',
+      width: '100%',
+      padding: '0px 64px',
       [theme.breakpoints.down('md')]: {
-        gap: '20px',
+        padding: '0px 32px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column-reverse',
+        gap: '32px',
+        padding: '0px 16px',
       },
     },
     column: {
-      width: 'calc(100% / 2)',
-      background: theme.palette.primary.main,
-      minHeight: '80vh',
-      height: '100%',
-      borderRadius: '8px',
-      textAlign: 'initial',
-      padding: '2%',
+      width: '50%',
       [theme.breakpoints.down('sm')]: {
         width: '100%',
-        minHeight: '250px',
-        height: 'initial',
       },
-    },
-    emailWrapper: {
-      marginBottom: '30px',
     },
     label: {
       fontWeight: 600,
-      borderBottom: '2px solid',
-      width: 'fit-content',
-      fontSize: '20px',
+      marginBottom: '16px',
+      fontSize: '24px',
+      textAlign: 'center',
     },
     email: {
       textDecoration: 'none',
-      fontWeight: 600,
-      color: theme.palette.primary.light,
-      fontSize: '28px',
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '24px',
-      },
+      color: theme.palette.secondary.main,
+      fontSize: '24px',
+    },
+    emailWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+    },
+    socialIconsWrapper: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '100%',
+      alignItems: 'center',
+      marginBottom: '32px',
     },
     socialIcons: {
       display: 'flex',
-      marginTop: '5px',
-      gap: '10px',
+      gap: '16px',
     },
     icon: {
       cursor: 'pointer',
-      fill: '#fff',
+      fill: theme.palette.secondary.main,
     },
     formTitle: {
       fontWeight: 600,
@@ -453,22 +489,34 @@ export const contactsStyle = (width) => {
       gap: width > 1024 ? '30px' : '20px',
     },
     textarea: {
-      height: '70px',
+      height: '150px',
       resize: 'none',
-      borderRadius: '12px',
-      padding: '10px',
-      fontWeight: 600,
-      fontFamily: 'Amazing Grotesk',
+      padding: '8px',
+      fontFamily: 'NT Somic',
       outline: 'none',
       border: '0px',
+      fontSize: '18px',
+    },
+    doubleInputsWrapper: {
+      display: 'flex',
+      gap: '16px',
+      width: '100%',
+      [theme.breakpoints.down('sm')]: {
+        flexDirection: 'column',
+      },
     },
     formInput: {
+      width: '50%',
       '& .MuiInputBase-input': {
-        background: theme.palette.primary.light,
         height: '40px',
-        paddingLeft: '5px',
-        borderRadius: '12px',
-        fontWeight: 600,
+        padding: '8px',
+        fontSize: '18px',
+        '&::placeholder': {
+          color: theme.palette.primary.main,
+        },
+      },
+      [theme.breakpoints.down('sm')]: {
+        width: '100%',
       },
     },
     formLabel: {
@@ -481,14 +529,14 @@ export const contactsStyle = (width) => {
       position: 'relative',
     },
     formButton: {
-      background: theme.palette.primary.dark,
+      background: theme.palette.secondary.main,
+      boxShadow: 'none',
+      borderRadius: '0px',
       color: theme.palette.primary.light,
-      fontWeight: 600,
-      height: '40px',
+      textTransform: 'none',
       fontSize: '18px',
-      [theme.breakpoints.down('sm')]: {
-        fontSize: '16px',
-      },
+      padding: '8px 0px',
+      fontWeight: 400,
     },
     error: {
       fontSize: '12px',
@@ -497,18 +545,6 @@ export const contactsStyle = (width) => {
       position: 'absolute',
       bottom: -20,
     },
-    buttonWrapper: {
-      display: 'flex',
-      height: width > 1024 ? '70px' : '50px',
-      alignItems: 'end',
-      '& button': {
-        width: '100%',
-        '&.Mui-disabled': {
-          background: 'gray',
-          color: '#fff',
-        },
-      },
-    },
   };
 };
 
@@ -516,62 +552,143 @@ export const footerStyles = () => {
   return {
     wrapper: {
       background: theme.palette.primary.main,
-      padding: '0% 2% 2% 2%',
+      padding: '16px 40px',
       display: 'flex',
       justifyContent: 'space-between',
+      alignItems: 'center',
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
+        gap: '8px',
       },
     },
     logo: {
       width: '150px',
     },
     pdfLink: {
-      color: theme.palette.primary.light,
-      fontWeight: 600,
+      color: theme.palette.primary.dark,
       cursor: 'pointer',
       textDecoration: 'none',
-    },
-    leftSide: {
-      display: 'flex',
-      flexDirection: 'column',
+      fontSize: '18px',
+      [theme.breakpoints.down('md')]: {
+        fontSize: '13px',
+      },
     },
     links: {
-      paddingLeft: '17px',
+      display: 'flex',
+      gap: '32px',
+      [theme.breakpoints.down('sm')]: {
+        gap: '16px',
+      },
+      [theme.breakpoints.down('sm')]: {
+        gap: '8px',
+        flexDirection: 'column',
+        alignItems: 'center',
+      },
+    },
+  };
+};
+
+export const useHeadBlockStyles = () => {
+  return {
+    root: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      flexDirection: 'column',
+      padding: '130px 0',
+      gap: '96px',
+      [theme.breakpoints.down('md')]: {
+        padding: '80px 0',
+      },
+    },
+    imageWrapper: {
+      '& img': {
+        [theme.breakpoints.down('md')]: {
+          maxWidth: '700px',
+        },
+        [theme.breakpoints.down('sm')]: {
+          maxWidth: '400px',
+        },
+        [theme.breakpoints.down(376)]: {
+          maxWidth: '320px',
+        },
+        [theme.breakpoints.down(321)]: {
+          maxWidth: '300px',
+        },
+        [theme.breakpoints.up('xxl')]: {
+          width: '1500px',
+          height: '900px',
+        },
+      },
+    },
+    buttonsWrapper: {
       display: 'flex',
       gap: '10px',
       [theme.breakpoints.down('sm')]: {
         flexDirection: 'column',
+        gap: '8px',
+        '& a': {
+          width: '328px !important',
+        },
+      },
+      [theme.breakpoints.down(321)]: {
+        '& a': {
+          width: '315px !important',
+        },
+      },
+      [theme.breakpoints.up('xxl')]: {
+        gap: '25px',
+        '& a': {
+          width: '500px !important',
+          fontSize: '32px !important',
+        },
       },
     },
-    rightSide: {
-      padding: '2% 5% 0% 0%',
+    donate: {
       display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'end',
-      gap: '10px',
-      [theme.breakpoints.down('sm')]: {
-        alignItems: 'start',
-        paddingLeft: '17px',
-        flexDirection: 'column-reverse',
-      },
-    },
-    donateLink: {
+      alignItems: 'center',
+      justifyContent: 'center',
       textDecoration: 'none',
       color: theme.palette.primary.light,
-      fontWeight: 600,
-      background: theme.palette.primary.dark,
-      padding: '4%',
-      width: '150px',
-      textAlign: 'center',
+      background: theme.palette.secondary.main,
+      padding: '8px',
+      fontSize: 16,
+      cursor: 'pointer',
+      fontSize: '18px',
+      width: '332px',
+    },
+    request: {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      textDecoration: 'none',
+      color: theme.palette.primary.dark,
+      background: theme.palette.primary.light,
+      border: `1px solid ${theme.palette.secondary.main}`,
+      padding: '8px',
+      fontSize: 16,
+      cursor: 'pointer',
+      fontSize: '18px',
+      width: '332px',
+    },
+  };
+};
+
+export const useCustomCarouselStyles = () => {
+  return {
+    customDot: {
+      margin: '0 8px',
+      cursor: 'pointer',
+      width: '28px',
+      height: '7px',
       [theme.breakpoints.down('sm')]: {
-        width: '210px',
+        margin: '0 4px',
       },
     },
-    mail: {
-      color: theme.palette.primary.light,
-      fontWeight: 600,
-      textDecoration: 'none',
+    wrapper: {
+      paddingBottom: '16px',
+      position: 'relative',
     },
+    imagesWrapper: { display: 'flex', gap: '10px' },
   };
 };

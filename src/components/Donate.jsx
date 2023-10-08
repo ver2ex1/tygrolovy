@@ -6,6 +6,8 @@ import PaypalLogo from '@/assets/images/PaypalLogo';
 import LinkOutlinedIcon from '@mui/icons-material/LinkOutlined';
 import useWindowSize from '@/utils/useWindowSize';
 import copy from 'copy-to-clipboard';
+import Image from 'next/image';
+import Link from 'next/link';
 
 const Donate = () => {
   const { t } = useTranslation();
@@ -19,158 +21,60 @@ const Donate = () => {
   const { width } = useWindowSize();
   return (
     <Box sx={classes.wrapper}>
+      <Typography sx={classes.title}>
+        {t('donate.title')} {t('donate.afu')}:
+      </Typography>
       <Box sx={classes.content}>
-        <Box sx={classes.donateColumn}>
-          <Typography variant='h4'>{t('donate.title')}</Typography>
+        <Box sx={classes.block}>
+          <Typography sx={classes.blockTitle}>
+            {t('donate.liqpayPayment')}
+          </Typography>
+          <Image
+            src="/assets/liqpayQR.png"
+            alt="liqpay QR"
+            width={197}
+            height={197}
+          />
           <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
+            method="POST"
+            action="https://www.liqpay.ua/api/3/checkout"
+            acceptCharset="utf-8"
           >
             <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVQUgiLCJ2ZXJzaW9uIjozfQ=='
+              type="hidden"
+              name="data"
+              value="eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVQUgiLCJ2ZXJzaW9uIjozfQ=="
             />
             <input
-              type='hidden'
-              name='signature'
-              value='+upisot7bQFSZufD8cSQQOu1tX8='
+              type="hidden"
+              name="signature"
+              value="+upisot7bQFSZufD8cSQQOu1tX8="
             />
-            <Button variant='contained' type='submit'>
-              {t('donate.donateUah')} ₴
-            </Button>
-          </form>
-          <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
-          >
-            <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJVU0QiLCJ2ZXJzaW9uIjozfQ=='
-            />
-            <input
-              type='hidden'
-              name='signature'
-              value='Yqct8WWfGgyi9DI4ab1piF9Zyqk='
-            />
-            <Button variant='contained' type='submit'>
-              {t('donate.donateUsd')} $
-            </Button>
-          </form>
-          <form
-            method='POST'
-            action='https://www.liqpay.ua/api/3/checkout'
-            acceptCharset='utf-8'
-          >
-            <input
-              type='hidden'
-              name='data'
-              value='eyJwdWJsaWNfa2V5IjoiaTgxMTU2OTcxOTMzIiwiYWN0aW9uIjoicGF5ZG9uYXRlIiwiY3VycmVuY3kiOiJFVVIiLCJ2ZXJzaW9uIjozfQ=='
-            />
-            <input
-              type='hidden'
-              name='signature'
-              value='luSZ59v5eZgAP+yzmKPJYdeZxp0='
-            />
-            <Button variant='contained' type='submit'>
-              {t('donate.donateEuro')} €
+            <Button
+              variant="contained"
+              type="submit"
+              sx={classes.donateButton}
+              disableRipple
+            >
+              {t('donate.title')}
             </Button>
           </form>
         </Box>
-        <Box sx={classes.requisitesColumn}>
-          <Typography variant='h4'>{t('donate.requisites')}</Typography>
-          <Box sx={classes.requisitesContent}>
-            <Box sx={classes.requisitesCopy}>
-              <Box sx={classes.requisitesSymbol}>₴</Box>
-              <TextField
-                disabled
-                value='UA303052990000026008006231254'
-                sx={classes.requisitesInput}
-              />
-              <Tooltip
-                title='Copied'
-                placement={width > 375 ? 'top' : 'top-start'}
-                arrow
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                PopperProps={{
-                  disablePortal: true,
-                }}
-                open={Boolean(openedTooltip === 'uah')}
-              >
-                <Box
-                  sx={classes.requisitesCopyButton}
-                  onClick={() =>
-                    handleCopy('uah', 'UA303052990000026008006231254')
-                  }
-                >
-                  <LinkOutlinedIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-            <Box sx={classes.requisitesCopy}>
-              <Box sx={classes.requisitesSymbol}>€</Box>
-              <TextField
-                disabled
-                value='UA323052990000026006046247084'
-                sx={classes.requisitesInput}
-              />
-              <Tooltip
-                title='Copied'
-                placement={width > 375 ? 'top' : 'top-start'}
-                arrow
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                PopperProps={{
-                  disablePortal: true,
-                }}
-                open={Boolean(openedTooltip === 'usd')}
-              >
-                <Box
-                  sx={classes.requisitesCopyButton}
-                  onClick={() =>
-                    handleCopy('usd', 'UA323052990000026006046247084')
-                  }
-                >
-                  <LinkOutlinedIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-            <Box sx={classes.requisitesCopy}>
-              <Box sx={classes.requisitesSymbol}>
-                <PaypalLogo />
-              </Box>
-              <TextField
-                disabled
-                value='tygrolovy.ua@gmail.com'
-                sx={classes.requisitesInput}
-              />
-              <Tooltip
-                title='Copied'
-                placement={width > 375 ? 'top' : 'top-start'}
-                arrow
-                disableFocusListener
-                disableHoverListener
-                disableTouchListener
-                PopperProps={{
-                  disablePortal: true,
-                }}
-                open={Boolean(openedTooltip === 'paypal')}
-              >
-                <Box
-                  sx={classes.requisitesCopyButton}
-                  onClick={() => handleCopy('paypal', 'tygrolovy.ua@gmail.com')}
-                >
-                  <LinkOutlinedIcon />
-                </Box>
-              </Tooltip>
-            </Box>
-          </Box>
+        <Box sx={classes.block}>
+          <Typography sx={classes.blockTitle}>
+            {t('donate.charityBank')}
+          </Typography>
+          <Link href="https://send.monobank.ua/jar/3TEdr9Qf5u" target="_blank">
+            <Image
+              src="/assets/charityBank.png"
+              alt="Charity Bank"
+              width={227}
+              height={227}
+            />
+          </Link>
+          <Typography sx={classes.bankInstruction}>
+            ({t('donate.bankInstruction')})
+          </Typography>
         </Box>
       </Box>
     </Box>

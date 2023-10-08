@@ -1,42 +1,39 @@
 import Head from 'next/head';
 import Landing from '../components/Landing';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { getImageReportsPaths } from './api/listImage';
 
-export default function Home() {
+export default function Home({ reportImages }) {
   return (
     <>
       <Head>
         <title>Тигролови</title>
         <meta
-          name='description'
-          content='Благодійний фонд точкової допомоги армії Україні'
+          name="description"
+          content="Благодійний фонд точкової допомоги армії Україні"
         />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' type='image/png' href='/favicon.ico' />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" type="image/png" href="/favicon.ico" />
         <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href='/apple-touch-icon.png'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href='/favicon-32x32.png'
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href="/apple-touch-icon.png"
         />
         <link
-          rel='icon'
-          type='image/png'
-          sizes='16x16'
-          href='/favicon-16x16.png'
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href="/favicon-32x32.png"
         />
-        <link rel='manifest' href='/site.webmanifest' />
         <link
-          href='https://fonts.cdnfonts.com/css/amazing-grotesk'
-          rel='stylesheet'
+          rel="icon"
+          type="image/png"
+          sizes="16x16"
+          href="/favicon-16x16.png"
         />
+        <link rel="manifest" href="/site.webmanifest" />
         <script
-          type='application/ld+json'
+          type="application/ld+json"
           dangerouslySetInnerHTML={{
             __html: `
             {
@@ -74,16 +71,20 @@ export default function Home() {
         ></script>
       </Head>
       <main>
-        <Landing />
+        <Landing reportImages={reportImages} />
       </main>
     </>
   );
 }
 
-export async function getStaticProps({ locale }) {
+export async function getServerSideProps({ locale }) {
+  const reportImages = getImageReportsPaths();
+  const translations = await serverSideTranslations(locale);
+
   return {
     props: {
-      ...(await serverSideTranslations(locale)),
+      reportImages,
+      ...translations,
     },
   };
 }

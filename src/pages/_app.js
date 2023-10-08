@@ -7,12 +7,13 @@ import { ThemeProvider, CssBaseline } from '@mui/material';
 import theme from '@/config/theme';
 import { appWithTranslation } from 'next-i18next';
 import { ToastContainer } from 'react-toastify';
+import '../styles/globals.css';
 
 const App = ({ Component, pageProps }) => {
   return (
     <ThemeProvider theme={theme}>
       <ToastContainer
-        position='top-right'
+        position="top-right"
         autoClose={3000}
         hideProgressBar
         newestOnTop={false}
@@ -21,7 +22,7 @@ const App = ({ Component, pageProps }) => {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme='colored'
+        theme="colored"
         icon={false}
       />
       <CssBaseline />

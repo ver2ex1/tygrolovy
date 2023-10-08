@@ -3,18 +3,20 @@ import { createTheme } from '@mui/material/styles';
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#9ECDBB',
-      dark: '#34422f',
+      main: '#C7D3C5',
+      dark: '#495544',
       light: '#fff',
     },
+    secondary: { main: '#2B3826' },
   },
   breakpoints: {
     values: {
-      xs: 0,
+      xs: 375,
       sm: 660,
       md: 900,
       lg: 1025,
-      xl: 1536,
+      xl: 1439,
+      xxl: 2559,
     },
   },
   components: {
@@ -27,9 +29,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: ['Amazing Grotesk', 'Helvetica', 'Arial', 'sans-serif'].join(
-      ','
-    ),
+    fontFamily: ['NT Somic', 'Helvetica', 'Arial', 'sans-serif'].join(','),
   },
 });
 
