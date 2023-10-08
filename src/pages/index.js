@@ -77,7 +77,7 @@ export default function Home({ reportImages }) {
   );
 }
 
-export async function getServerSideProps({ locale }) {
+export async function getStaticProps({ params, locale }) {
   const reportImages = getImageReportsPaths();
   const translations = await serverSideTranslations(locale);
 
