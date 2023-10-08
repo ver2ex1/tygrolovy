@@ -53,7 +53,8 @@
     "generators": "generators",
     "first_aid_kits": "first aid kits",
     "batteries_for_walkie_talkies": "batteries for walkie-talkies",
-    "accessories_for_laptops": "accessories for laptops"
+    "accessories_for_laptops": "accessories for laptops",
+    "imageTitle": "Photo reports from the defenders"
   },
   "donate": {
     "title": "Donate",

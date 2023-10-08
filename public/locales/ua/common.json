@@ -53,7 +53,8 @@
     "generators": "ненератори",
     "first_aid_kits": "аптечки",
     "batteries_for_walkie_talkies": "акумулятори для рацій",
-    "accessories_for_laptops": "комплектуючі для ноутбуків"
+    "accessories_for_laptops": "комплектуючі для ноутбуків",
+    "imageTitle": "Фото-звіти від захисників"
   },
   "donate": {
     "title": "Підтримати",
